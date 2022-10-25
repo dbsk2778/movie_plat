@@ -7,6 +7,7 @@
   box-sizing:border-box;
   font-family: 'Roboto Condensed', sans-serif;
 }
+/* 배경 관련 스타일 */
 .container {
   position:absolute;
   top:0;
@@ -19,9 +20,11 @@
   background:rgba(12,12,12,0.9);
   transition:background 200ms ease;
 }
+/* 이메일이나 비밀번호 에러 시 바탕화면 색상 스타일 */
 .container.error {
   background:rgba(12,12,12,0.9);
 }
+/* 로그인 폼 제목 관련 스타일 */
 .container .title {
   position:absolute;
   top:-70px;
@@ -30,6 +33,7 @@
   font-size:50px;
   color:rgba(100,240,80,1);
 }
+/* html에서 없앤 부분, 로그인 폼 왼쪽 점 세개 스타일 */
 .bullets {
   height:0px;
   width:0px;
@@ -50,6 +54,7 @@
 .bullets span.active {
   background:#fff;
 }
+/* 폼 관련 스타일 */
 .form {
   width:300px;
   height:50px;
@@ -111,6 +116,7 @@
   color:rgba(32,32,32,0.9);
   font-size:20px;
 }
+/* success 후에 스핀 스타일 */
 .spinner {
   -webkit-animation: rotator 1.4s linear infinite;
           animation: rotator 1.4s linear infinite;
@@ -123,6 +129,7 @@
   -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
           animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
 }
+/* seccess 관련 스타일 */
 .success {
   text-align:center;
 }
