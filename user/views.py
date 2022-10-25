@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 # Create your views here.
-# 회원가입
+# 회원 가입처리 (아름1025)
 def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
@@ -15,4 +15,4 @@ def signup(request):
             auth.login(request, user)
             return redirect('/')
         return render(request, 'user/signup.html')
-    return render(request, 'user/signup.html')
+    return render(request, 'common/home.html')
