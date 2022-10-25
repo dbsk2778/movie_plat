@@ -1,7 +1,8 @@
 {% extends 'common/base.html' %}
+
 {% block content %}
 <div class="wrapper" style="text-align: center;">
-    <h1>회원가입</h1>
+    <h1>회 원 가 입</h1>
     <form method="POST">
         {% csrf_token %}
         아이디: <br>
@@ -16,7 +17,7 @@
         이메일: <br>
         <input name="email" type="email">
         <br><br>
-        <input type="submit" class="btn btn-primary" value="Sign Up">
+        <input type="submit" value=" 가입하기 ">
     </form>
 </div>
 {% endblock %}

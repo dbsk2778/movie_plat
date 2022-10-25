@@ -24,5 +24,8 @@ urlpatterns = [
     path('', generic.TemplateView.as_view(template_name='common/dist/index.html'), name='login'),
     path('user/', include('user.urls')),
     path('board/', include('board.urls')),
+    path('home/', generic.TemplateView.as_view(template_name='common/home.html'), name='home'),
+
+
 
 ]

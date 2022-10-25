@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <h1>홈</h1>
-    <h1>저는 집입니다 (아름)</h1>
-    <h2>계속 집입니다 근데 변경사항이 생겼다고 합니다(아름)</h2>
-    <h1>허허를 지우고 고양이가 되었습니다 </h1>
-</body>
-</html>
+{% extends 'common/base.html' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block body %}
+<div class="h1">HOME</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    <title>Platform</title>
+    <link rel="stylesheet" href="../../static/common/menu_style.css">
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>Platform</h1>
+            <nav>
+                <ul class="menu">
+                    {% if user.is_authenticated %}
+                    {# 로그인한 경우 #}
+                        <li><a href="#">Profile</a></li>                    
+                        <li><a href="{% url 'user:logout' %}">Logout</a></li>
+                    {% else %}
+                    {# 로그인하지 않은 경우 #}
+                        <li><a href="#">login</a></li>
+                        <li><a href="{% url 'user:signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>            
+</body>
+</html>
