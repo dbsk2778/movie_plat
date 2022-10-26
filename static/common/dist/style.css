@@ -117,7 +117,7 @@
   font-size:20px;
 }
 /* success 후에 스핀 스타일 */
-.spinner {
+/* .spinner {
   -webkit-animation: rotator 1.4s linear infinite;
           animation: rotator 1.4s linear infinite;
 }
@@ -128,9 +128,9 @@
           transform-origin: center;
   -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
           animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-}
+} */
 /* seccess 관련 스타일 */
-.success {
+/* .success {
   text-align:center;
 }
 .success i {
@@ -149,7 +149,7 @@
   text-transform:uppercase;
   margin-top:15px;
   font-size:22px;
-}
+} */
 
 /* 간편 로그인 텍스트 */
 .login_text{

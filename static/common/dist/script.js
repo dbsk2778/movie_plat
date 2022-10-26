@@ -14,12 +14,8 @@ $('.nextBtn').on('click',function(){
   if(!parentRef.hasClass('lastField')){
    parentRef.addClass('hide'); 
    parentRef.next().addClass('shown').addClass('visible');
-   $('.bullets span.active').removeClass('active').next().addClass('active');
-  } else {  // 이메일,비밀번호 입력 후 성공시 진행되는 페이지 관련
-    $('.container').css('background','#0C0C0C').html($('.spinnerWrapper').html());
-    setTimeout(function(){
-      $('.container').html('<div class="success"><i class="fa fa-check"></i><h2>Account Created</h2></div>');
-    },4000);
+  } else {
+    $('.container').html('<link href="https://127.0.0.1:8000/home/">');
   }
   $('.container').removeClass('error');
 });
