@@ -151,6 +151,19 @@
   font-size:22px;
 }
 
+/* 간편 로그인 텍스트 */
+.login_text{
+  color: #949494;
+  text-align:center;
+  margin-top:50px;
+  line-height:50px;
+}
+/* API 토큰 정렬 */
+.loginAPI_token {
+  text-align:center;
+  margin-top:0;
+}
+
 
 
 @keyframes show {
