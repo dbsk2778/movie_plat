@@ -15,7 +15,9 @@ $('.nextBtn').on('click',function(){
    parentRef.addClass('hide'); 
    parentRef.next().addClass('shown').addClass('visible');
   } else {
-    $('.container').html('<link href="https://127.0.0.1:8000/home/">');
+    setTimeout(function(){
+      window.location.href = './home/'
+    },500)
   }
   $('.container').removeClass('error');
 });
