@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- urls.py의 app_name:url_name -->
+    <form action="{% url 'searchapi:search_api' %}" method="GET">
+        <input type="text" name="q" placeholder="검색">
+        <input type="submit" value="검색">
+    </form>
+    <div>
+    {% for item in items %}
+        <ul>
+            <div>{{ forloop.counter }}
+                <img src="{{item.image}}" alt="" width="110" height="150"> : {{ item.title|safe }} 
+                ( {{item.pubDate}} ) : {{ item.director }} : {{ item.actor }} 
+                평점 : {{ item.userRating }}
+            </div>
+        </ul>
+    {% endfor %}
+    </div>
+</body>
+</html>

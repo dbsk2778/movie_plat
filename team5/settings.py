@@ -33,13 +33,14 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'board.apps.BoardConfig',
     'user.apps.UserConfig',
-
+    'searchapi.apps.SearchapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'searchapi',
 ]
 
 MIDDLEWARE = [
@@ -76,13 +77,8 @@ WSGI_APPLICATION = 'team5.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+import my_settings
+DATABASES = my_settings.DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
