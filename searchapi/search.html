@@ -7,21 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- urls.py의 app_name:url_name -->
-    <form action="{% url 'searchapi:search_api' %}" method="GET">
-        <input type="text" name="q" placeholder="검색">
-        <input type="submit" value="검색">
-    </form>
-    <div>
-    {% for item in items %}
-        <ul>
-            <div>{{ forloop.counter }}
-                <img src="{{item.image}}" alt="" width="110" height="150"> : {{ item.title|safe }} 
-                ( {{item.pubDate}} ) : {{ item.director }} : {{ item.actor }} 
-                평점 : {{ item.userRating }}
+        <!-- urls.py의 app_name:url_name -->
+    </div>
+        <div class = "body">
+        {% for item in items %}
+            <div class ="content">
+                <div class ="sub"> 
+                    
+                    <ul>
+                        <div>{{ forloop.counter }}
+                            <br>
+                            {{ item.title|safe }} 
+                            <br>
+                            <img src="{{item.image}}" alt="" width="110" height="150">
+                            <br> 
+                            제작연도 : {{item.pubDate}} <br>
+                            감독 : {{ item.director }} <br>
+                            배우 : {{ item.actor }}  <br>
+                            평점 : {{ item.userRating }}
+                        </div>
+                    </ul>
+                    
+                </div>
             </div>
-        </ul>
-    {% endfor %}
+        {% endfor %}
+        </div>
     </div>
 </body>
 </html>
