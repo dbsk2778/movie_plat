@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../static/user/choice.css">
+    <script src="../../static/user/choice.js"></script>
+    <title>Choice 연습</title>
+</head>
+<body>
+    <div class="container">
+        <h1>선호 장르</h1>
+        <p>좋아하는 장르를 선택해주세요.</p>
+        <form name="check1" action="" method="post">
+            {% csrf_token %}
+            <ul class="ul_icon">
+                <li>
+                    <input type="checkbox" id="myCheckbox1" />
+                    <label for="myCheckbox1"><img src="../../static/img/cat.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox2" />
+                    <label for="myCheckbox2"><img src="../../static/img/cat2.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox3" />
+                    <label for="myCheckbox3"><img src="../../static/img/weare_img1.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox4" />
+                    <label for="myCheckbox4"><img src="../../static/img/weare_img2.png" /></label>
+                </li>
+            </ul>
+            <div class="buttons">
+                <button class='buttons' type="submit">선택완료</button>
+            </div>
+        </form>
+
+        <h1>국가 선택</h1>
+        <p>국가를 선택해주세요.</p>
+        <form name="check2" action="" method="post">
+            {% csrf_token %}
+            <ul class="ul_icon">
+                <li>
+                    <input type="checkbox" id="myCheckbox5" />
+                    <label for="myCheckbox5"><img src="../../static/img/cat.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox6" />
+                    <label for="myCheckbox6"><img src="../../static/img/cat2.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox7" />
+                    <label for="myCheckbox7"><img src="../../static/img/weare_img1.png" /></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="myCheckbox8" />
+                    <label for="myCheckbox8"><img src="../../static/img/weare_img2.png" /></label>
+                </li>
+            </ul>
+            <div class="buttons">
+                <button class='buttons' type="submit">선택완료</button>
+            </div>
+        </form>
+    </div>        
+</body>
+</html>

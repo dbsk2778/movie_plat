@@ -26,4 +26,5 @@ urlpatterns = [
     path('board/', include('board.urls')),
     path('home/', generic.TemplateView.as_view(template_name='common/home.html'), name='home'),
     # path('searchapi/', include('searchapi.urls')),
+    path('choice/', generic.TemplateView.as_view(template_name='user/choice.html'), name='choice'),
 ]

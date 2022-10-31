@@ -5,10 +5,11 @@ DATABASES = {
         'NAME' : 'mymovie',
         'USER' : 'director',
         'PASSWORD' : '1234',
-        'HOST' : '127.0.0.1',
+        'HOST' : '172.30.1.32',
         'PORT' : '3306',
         # 'OPTIONS': {
         #     'read_default_file': str(BASE_DIR / 'my_settings.cnf')
         # },
     }
 }
+
