@@ -122,7 +122,7 @@ def searchData(request):
             conn.close()
 
     except:
-        # conn.rollback()
+        conn.rollback()
         print("fail")
 
     context = {'datas': datas}
