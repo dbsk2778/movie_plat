@@ -40,18 +40,30 @@
             <div>
                 {% for item in items %}
                 <ul>
-                    <p>{% if forloop.counter %}</p>
-                        <div style="border:1px solid #232323; float: left; width: 20%; padding:10px; margin:20px;">
-                            <div>
-                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>  
-                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>  
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div style="border:1px solid #232323; float: left; width: 45%; padding:10px;">
+                            <div id='search_div1' style="width:30%; height:300px; border:1px solid #232323; float:left;">
+                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>    
+                            </div>
+                            <div id='search_div2' style="width:60%; height:300px; border:1px solid #232323; float:left;">
+                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
+                                <p class="text_color"><b>제작연도</b> : {{item.pubDate}}</p> <br>
+                                <p class="text_color"><b>감독</b> : {{ item.director }}</p><br>
+                                <p class="text_color"><b>배우</b> : {{ item.actor }} </p><br>
+                                <p class="text_color"><b>평점</b> : {{ item.userRating }}</p><br>    
                             </div>
                         </div>
                     {% else %}
-                        <div div style="border:1px solid #232323; float: left; width: 20%; padding:10px;margin:20px;">
-                            <div>
-                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>  
-                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>  
+                        <div div style="border:1px solid #232323; float: left; width: 45%; padding:10px;">
+                            <div id='search_div1' style="width:30%; height:300px; border:1px solid #232323; float:left;">
+                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>    
+                            </div>
+                            <div id='search_div2' style="width:60%; height:300px; border:1px solid #232323; float:left;">
+                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
+                                <p class="text_color"><b>제작연도</b> : {{item.pubDate}}</p> <br>
+                                <p class="text_color"><b>감독</b> : {{ item.director }}</p><br>
+                                <p class="text_color"><b>배우</b> : {{ item.actor }} </p><br>
+                                <p class="text_color"><b>평점</b> : {{ item.userRating }}</p><br>    
                             </div>
                         </div>
                     {% endif %}
