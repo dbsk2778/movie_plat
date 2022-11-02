@@ -37,3 +37,4 @@ var add_remove_effects = function(ref,classname){
       $a.removeClass($b);
     },450);     
 }
+

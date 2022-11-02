@@ -13,6 +13,6 @@ header{height: 75px; background-color: rgba(12,12,12,0.9);
 h1{color:white; line-height: 75px; float: left;}
 .menu {float:right;}
 .menu li{float:left;}
-.menu a{line-height: 75px; color:white; padding: 0 15px; display: block;}
+.menu a{line-height: 20px; color:white; padding: 0 15px; display: block;}
 
 

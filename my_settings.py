@@ -5,10 +5,9 @@ DATABASES = {
         'NAME' : 'mymovie',
         'USER' : 'director',
         'PASSWORD' : '1234',
-        # cmd ipconfig 확인 
-        # 'HOST' : '127.0.0.1',
-        'HOST' :'172.30.1.94',
-        # 'HOST' : '172.30.1.32',  
+        # 'HOST' : '172.30.1.22',
+        'HOST' : '127.0.0.1',
         'PORT' : '3306',
     }
 }
+

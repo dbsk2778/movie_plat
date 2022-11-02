@@ -10,10 +10,12 @@
                 <ul class="menu">
                     {% if user.is_authenticated %}
                     {# 로그인한 경우 #}
+                        <li><a href="{% url 'searchapi:search_api' %}">Search</a></li>
                         <li><a href="#">Profile</a></li>                    
                         <li><a href="{% url 'user:logout' %}">Logout</a></li>
                     {% else %}
                     {# 로그인하지 않은 경우 #}
+                        <li><a href="{% url 'searchapi:search_api' %}">Search</a></li>
                         <li><a href="{% url 'user:login' %}">login</a></li>
                         <li><a href="{% url 'user:signup' %}">Sign Up</a></li>
                     {% endif %}

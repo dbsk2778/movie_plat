@@ -3,7 +3,6 @@
 # views.py는 manage한테 가져온 정보와 프론트에게 전달받은 정보를 
 # 믹싱하여 templates, html로 프론트엔드로 보냄
 
-from tabnanny import verbose
 from django.db import models
 
 # 데이터베이스 안의 데이터는 엑셀의 테이블형식(행, 열)으로 데이터가 들어가게 되는데
@@ -12,29 +11,19 @@ from django.db import models
 class Searchapi(models.Model):
 
     # 'Title', 'Link', 'Image', 'Subtitle', 'Publication Date', 
-    # 'Director', 'Actor','User Rating'
+    # 'Director', 'Actor','User Rating' 
     # 테이블 생성, 데이터 타입 확인 * 
 
-    # index = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    # title = models.TextField(verbose_name='제목', null=True)
-    # link = models.TextField(null=True)
-    # image = models.TextField(null=True)
-    # subtitle = models.TextField(null=True)
-    # publication_date = models.TextField(null=True)
-    # director = models.TextField(null=True)
-    # actor = models.TextField(null=True)
-    # user_rating = models.TextField(null=True)
-
-
-    index = models.BigIntegerField(blank=True, null=True) 
     title = models.TextField(db_column='Title', blank=True, null=True)  # Field name made lowercase.
     link = models.TextField(db_column='Link', blank=True, null=True)  # Field name made lowercase.
     image = models.TextField(db_column='Image', blank=True, null=True)  # Field name made lowercase.
     subtitle = models.TextField(db_column='Subtitle', blank=True, null=True)  # Field name made lowercase.
-    publication_date = models.TextField(db_column='Publication Date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.     
+    pub_date = models.TextField(db_column='Publication Date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.     
     director = models.TextField(db_column='Director', blank=True, null=True)  # Field name made lowercase.
     actor = models.TextField(db_column='Actor', blank=True, null=True)  # Field name made lowercase.
     user_rating = models.TextField(db_column='User Rating', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
-        db_table = 'searchmovie'
+        # 테이블 이름을 searchmovie로 변경
+        # 모델이 참조하는 테이블 이름
+        db_table = 'search_movie'

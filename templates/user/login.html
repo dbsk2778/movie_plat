@@ -2,20 +2,25 @@
 <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 <script src='main.js'></script>
 
-<br><br><br><br>
+<br><br><br><br><br><br><br>
 <div style="text-align: center;">
-    <h1>로그인</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <p>email</p>
-        <input name="email" type="email" style="text-align: center;">
-        <br>
-        <p>비밀번호</p>
-        <input name="password" type="password">
-        <br>
-        <input type="submit"  value="Login">
-    </form>
-    <br><br>
+    <h1>LOGIN</h1>
+
+    {% block body %}
+    <div style="text-align: center;">
+        <h1>로그인</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <p> I D </p>
+            <input name="username" type="text" >
+            <br>
+            <p>비밀번호</p>
+            <input name="password" type="password">
+            <br>
+            <input type="submit"  value="Login">
+        </form>
+        <br><br>
+    {% endblock %}
     <!-- 로그인 API 토큰 -->
     <div class="loginAPI_token">
         <!-- 네이버 -->

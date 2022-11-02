@@ -1,36 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <div class="container mt-3"></div>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search</title>
+        <link rel="stylesheet" href="../../static/common/menu_style.css">
+        <!-- <script src="../../../static/common/dist/script.js"></script> -->
+
+        <style>
+            .text_color{
+                color:white;
+            }
+            header {
+                height: 75px;
+                padding: 0;
+                /* color: white; */
+                background: black;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+    }
+            body{
+                background-color: #232323;
+                background-attachment: fixed; 
+
+                padding-top: 75px;
+                /* background: rgb(12, 12, 12); */
+                margin: 0;
+            }
+            #search_div1{
+                line-height: 150px;
+                /* text-align: center ; */
+                /* 텍스트 가운데 정렬 */
+            }
+            #search_div2{
+                line-height: 25px;
+                /* text-align: center ; */
+            }
+
+            /* .menu li div #search1{
+                float:left; margin-top: 30px;  
+            }
+            .menu li div #search2{
+                float:left; margin-top: 30px;
+            } */
+        </style>
+    </div>
 </head>
 <body>
-    </div>
-        <div class = "body">
-        {% for item in items %}
-            <div class ="content">
-                <div class ="sub"> 
-                    
-                    <ul>
-                        <div>{{ forloop.counter }}
-                            <br>
-                            {{ item.title|safe }} 
-                            <br>
-                            <img src="{{item.image}}" alt="" width="110" height="150">
-                            <br> 
-                            제작연도 : {{item.pubDate}} <br>
-                            감독 : {{ item.director }} <br>
-                            배우 : {{ item.actor }}  <br>
-                            평점 : {{ item.userRating }}
+    <div class="wrapper">
+        <header>
+            <h1>Platform</h1>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <div style="float:left; margin: 25px; padding: 0px;" >
+                            <form action="{% url 'searchapi:search_api' %}" method="GET">
+                                <input type="text" id="search1" name="q" placeholder="Search for something...">
+                                <input type="submit" id="search2" value="Search"> 
+                            </form>
                         </div>
-                    </ul>
-                    
-                </div>
-            </div>
-        {% endfor %}
-        </div>
+                    </li>
+                    <!-- <li><a href="{% url 'searchapi:search_api' %}">Search</a></li> -->
+                    <li><a href="{% url 'user:login' %}">login</a></li>
+                    <li><a href="{% url 'user:signup' %}">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header> 
     </div>
+    <div>
+        <section>
+            <!-- <div>
+                <form action="{% url 'searchapi:search_api' %}" method="GET">
+                    <input type="text" name="q" placeholder="Search for something...">
+                    <input type="submit" value="Search"> 
+                </form>
+            </div> -->
+            <div>
+                {% for item in items %}
+                <ul>
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div style="border:1px solid #232323; float: left; width: 45%; padding:10px;">
+                            <div id='search_div1' style="width:30%; height:300px; border:1px solid #232323; float:left;">
+                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>    
+                            </div>
+                            <div id='search_div2' style="width:60%; height:300px; border:1px solid #232323; float:left;">
+                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
+                                <p class="text_color"><b>제작연도</b> : {{item.pubDate}}</p> <br>
+                                <p class="text_color"><b>감독</b> : {{ item.director }}</p><br>
+                                <p class="text_color"><b>배우</b> : {{ item.actor }} </p><br>
+                                <p class="text_color"><b>평점</b> : {{ item.userRating }}</p><br>    
+                            </div>
+                        </div>
+                    {% else %}
+                        <div div style="border:1px solid #232323; float: left; width: 45%; padding:10px;">
+                            <div id='search_div1' style="width:30%; height:300px; border:1px solid #232323; float:left;">
+                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>    
+                            </div>
+                            <div id='search_div2' style="width:60%; height:300px; border:1px solid #232323; float:left;">
+                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
+                                <p class="text_color"><b>제작연도</b> : {{item.pubDate}}</p> <br>
+                                <p class="text_color"><b>감독</b> : {{ item.director }}</p><br>
+                                <p class="text_color"><b>배우</b> : {{ item.actor }} </p><br>
+                                <p class="text_color"><b>평점</b> : {{ item.userRating }}</p><br>    
+                            </div>
+                        </div>
+                    {% endif %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+        <!-- <div>
+            {% for item in items %}
+                <ul>
+                    <div>{{ forloop.counter }}
+                        <p><img src="{{item.image}}" alt="" width="150" height="210"></p> <br>     
+                        <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
+                        <p class="text_color">제작연도 : {{item.pubDate}}</p> <br>
+                        <p class="text_color">감독 : {{ item.director }}</p><br>
+                        <p class="text_color">배우 : {{ item.actor }} </p><br>
+                        <p class="text_color">평점 : {{ item.userRating }}</p><br>
+                    
+                    </div>
+                </ul>
+            {% endfor %}
+            </div> -->
 </body>
 </html>

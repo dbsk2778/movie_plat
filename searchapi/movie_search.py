@@ -1,7 +1,5 @@
 # 네이버 영화 검색 API 
 # https://developers.naver.com/docs/serviceapi/search/movie/movie.md#%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C
-# https://colab.research.google.com/ 실행
-
 
 from doctest import debug_script
 import urllib.request 
@@ -12,14 +10,29 @@ import re
 from sqlalchemy import create_engine
 import pymysql
 
+
 # ipconfig 주소 설정
-engine = create_engine("mysql+pymysql://director:1234@172.30.1.94:3306/mymovie")
+engine = create_engine("mysql+pymysql://director:1234@127.0.0.1:3306/mymovie")
 # engine = create_engine("mysql+pymysql://director:1234@172.30.1.32:3306/mymovie")
 conn = engine.connect
 
 
 client_id = "QNw9k2mLukjBHx1zWHsG"
 client_secret = "GvPiAz3U6C"
+
+# encText = urllib.parse.quote("아이언맨")
+# url = "https://openapi.naver.com/v1/search/blog?query=" + encText # JSON 결과
+# # url = "https://openapi.naver.com/v1/search/blog.xml?query=" + encText # XML 결과
+# request = urllib.request.Request(url)
+# request.add_header("X-Naver-Client-Id",client_id)
+# request.add_header("X-Naver-Client-Secret",client_secret)
+# response = urllib.request.urlopen(request)
+# rescode = response.getcode()
+# if(rescode==200):
+#     response_body = response.read()
+#     print(response_body.decode('utf-8'))
+# else:
+#     print("Error Code:" + rescode)
 
 # def searchmovie():
 
@@ -88,7 +101,12 @@ for start_index in range(start, end, display):
 print(movie_df) 
 
 # to_sql : db 넣기
-movie_df.to_sql(name='searchmovie',con=engine, if_exists='replace')
+movie_df.to_sql(name='search_movie',con=engine, if_exists='replace')
+
+select_sql = "SELECT * FROM search_movie"
+
+selected_df = pd.read_sql_query(select_sql, engine, index_col='date')
+
 
 
 
