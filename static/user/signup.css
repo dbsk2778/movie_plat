@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+.menu_bar {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.claerpix {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.menu_h1 {
+    color:white;
+    line-height: 30px;
+    float: left;
+}
+
+.sign_h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    color:rgb(100,240,80);
+}
+
+header {
+    height: 75px;
+    padding: 0;
+    background: rgb(12, 12, 12);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+body{
+    background-color: rgb(12, 12, 12);
+    background-attachment: fixed; 
+    padding-top: 75px;
+    margin: 0;
+}
+
+#search_div1{
+    line-height: 150px;
+    /* text-align: center ; */
+    /* 텍스트 가운데 정렬 */
+}
+#search_div2{
+    line-height: 25px;
+    /* text-align: center ; */
+}
+
+#form1 {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.loginAPI_token {
+    text-align: center;
+}
+
+a {text-decoration: none; color: rgb(100,240,80);}
+a:visited {text-decoration: none; }
+a:hover {text-decoration: none; }
+a:focus {text-decoration: none; }
+a:hover, a:active {text-decoration: none;}
+
+.p1 {
+    color: white;
+}
+
+.join {
+    color: #ffaaaa;
+    background-color: gray;
+    width: 50px;
+    height: 30px;
+    border-color: #ffaaaa;
+    border-style: solid;
+}
+
+.joinText {
+    text-align: center;
+    color:rgb(100,240,80);
+    text-decoration: none;
+}
+
+font{
+    font-family: 'Noto Sans KR', sans-serif;
+}

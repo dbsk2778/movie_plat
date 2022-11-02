@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../static/user/choice.css">
     <script src="../../static/user/choice.js"></script>
-    <title>Choice 연습</title>
+    <title>장르 선택</title>
 </head>
 <body>
     <div class="container">
         <h1>선호 장르</h1>
         <p>좋아하는 장르를 선택해주세요.</p>
-        <form name="check1" action="" method="post">
+        <form name="check1" action="{% url 'home' %}" method="get">
             {% csrf_token %}
             <ul class="ul_icon">
                 <li>
@@ -33,15 +33,10 @@
                     <label for="myCheckbox4"><img src="../../static/img/weare_img2.png" /></label>
                 </li>
             </ul>
-            <div class="buttons">
-                <button class='buttons' type="submit">선택완료</button>
-            </div>
-        </form>
-
-        <h1>국가 선택</h1>
-        <p>국가를 선택해주세요.</p>
-        <form name="check2" action="" method="post">
-            {% csrf_token %}
+        <div>
+            <h1>국가 선택</h1>
+            <p>국가를 선택해주세요.</p>
+        </div>
             <ul class="ul_icon">
                 <li>
                     <input type="checkbox" id="myCheckbox5" />
@@ -63,7 +58,7 @@
                     <label for="myCheckbox8"><img src="../../static/img/weare_img2.png" /></label>
                 </li>
             </ul>
-            <div class="buttons">
+            <div>
                 <button class='buttons' type="submit">선택완료</button>
             </div>
         </form>
