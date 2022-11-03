@@ -1,8 +1,33 @@
-{% extends 'common/base.html' %}
-
-{% block title %}HOME{% endblock %}
-
-{% block body %}
-<div class="h1">HOME</div>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플랫폼에 오신걸 환영합니다.</title>
+    <link rel="stylesheet" href="../../static/common/home.css">
+</head>
+<header>
+    <div class="menuBar">
+        <h1 class="menu_h1">Platform</h1>
+        <nav>
+            <ul class="menu_bar1">
+                <li class="menu_li"><a href="{% url 'user:logout' %}" class="menu_a">Logout</a></li>
+                <li class="menu_li"><a href="#" class="menu_a">Profile</a></li>                    
+                <li>
+                    <div class="frm1">
+                        <form action="{% url 'searchapi:search_api' %}" method="GET">
+                            <input type="text" id="search1" name="q" placeholder="Search for something...">
+                            <input type="submit" id="search2" value="Search"> 
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <img src="../../static/img/cat.png">
+    <p class="p1">플랫폼에 오신걸 환영합니다.</p>
+</body>
+</html>

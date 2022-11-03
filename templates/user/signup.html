@@ -1,124 +1,139 @@
-{% extends 'common/base.html' %}
-
-
-{% block body %}
- <br><br><br><br>   
-<h1>회 원 가 입</h1>
-<div style="text-align: center;">
-<form method="POST">
-    {% csrf_token %}
-    <br><br>
-    <p></p>
-    I D<br>
-    <input name="username" type="text">
-    <br>
-    <br>
-    이메일 <br>
-    <input name="email" id="email" type="email">
-    <br>
-    비밀번호 <br>
-    <input name="password1" type="password">
-    <br>
-    비밀번호 확인 <br>
-    <input name="password2" type="password">
-    <br>
-    <br>
-    <input type="submit" value=" 가입하기 ">
-</form>
-<br><br>
-<!-- 로그인 API 토큰 -->
-<div class="loginAPI_token">
-    <!-- 네이버 -->
-    <span class="login-area">
-        <span id="message">
-        <span id="button_area">
-            <span id="naverIdLogin"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../../static/user/signup.css">
+</head>
+<header>
+    <div class="menu_bar">
+        <h1 class="menu_h1">Platform</h1>
+        <nav>
+            <!-- <ul class="menu_bar1">
+                <li class="menu_li">
+                    <input type="submit" id="search2" value="Search">
+                </li>
+                <li class="menu_li"><a href="{% url 'user:login' %}">login</a></li>
+            </ul> -->
+        </nav>
+    </div>
+</header> 
+<body>
+    <h1 class="sign_h1">회 원 가 입</h1>
+    <div id="form1">
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <p class="p1">I D</p>
+            <input name="username" type="text">
+            <p class="p1">이메일</p>
+            <input name="email" id="email" type="email">
+            <br>
+            <p class="p1">비밀번호</p>
+            <input name="password1" type="password">
+            <br>
+            <p class="p1">비밀번호 확인</p>
+            <input name="password2" type="password">
+            <br>
+            <br>
+            <input type="submit" value="JOIN" class="join">
+        </form>
+    </div>
+    <div class="joinText">
+        <p>소셜 아이디로 가입하기</p>
+    </div>
+    <!-- 로그인 API 토큰 -->
+    <div class="loginAPI_token">
+        <!-- 네이버 -->
+        <span class="login-area">
+            <span id="message">
+            <span id="button_area">
+                <span id="naverIdLogin"></span>
+            </span>
+            </span>
         </span>
+        <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+        <script type="text/javascript">
+        
+        const naverLogin = new naver.LoginWithNaverId(
+        {
+            clientId: "x2OwQmHAMDAXlB3QvDnL",
+            callbackUrl: "http://127.0.0.1:8000/main/",
+            loginButton: {color: "green", type: 1, height: 40}
+            }
+        );
+        
+
+            naverLogin.init();
+            naverLogin.getLoginStatus(function (status) {
+            if (status) {
+                const nickName=naverLogin.user.getNickName();
+                const age=naverLogin.user.getAge();
+                const birthday=naverLogin.user.getBirthday();
+
+                if(nickName===null||nickName===undefined ){
+                    alert("별명이 필요합니다. 정보제공을 동의해주세요.");
+                    naverLogin.reprompt();
+                    return ;  
+                }else{
+                setLoginStatus();
+                }
+        }
+            });
+            console.log(naverLogin);
+
+            function setLoginStatus(){
+            
+            const message_area=document.getElementById('message');
+            message_area.innerHTML=`
+            <h3> Login 성공 </h3>
+            // <div>user Nickname : ${naverLogin.user.nickname}</div>
+            // <div>user Age(범위) : ${naverLogin.user.age}</div>
+            // <div>user Birthday : ${naverLogin.user.birthday}</div>
+            `;
+            
+            const button_area=document.getElementById('button_area');
+            button_area.innerHTML="<button id='btn_logout'>로그아웃</button>";
+
+            const logout=document.getElementById('btn_logout');
+            logout.addEventListener('click',(e)=>{
+                naverLogin.logout();
+        location.replace("http://127.0.0.1:8000/main/");
+            })
+            }
+        </script>
+
+        <!-- 카카오톡 -->
+        <span>
+            <a href="javascript:kakaoLogin();">
+            <img src="../../../static/common/kakao_login.png" alt="카카오계정 로그인" style="height: 40px;"/>
+            </a>
         </span>
-    </span>
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-    <script type="text/javascript">
-    
-    const naverLogin = new naver.LoginWithNaverId(
-    {
-        clientId: "x2OwQmHAMDAXlB3QvDnL",
-        callbackUrl: "http://127.0.0.1:8000/main/",
-        loginButton: {color: "green", type: 1, height: 40}
-        }
-    );
-    
+        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        <script>
+            window.Kakao.init('410bd47035bb782d6bd87e48f7ea5407');
 
-        naverLogin.init();
-        naverLogin.getLoginStatus(function (status) {
-        if (status) {
-            const nickName=naverLogin.user.getNickName();
-            const age=naverLogin.user.getAge();
-            const birthday=naverLogin.user.getBirthday();
-
-            if(nickName===null||nickName===undefined ){
-                alert("별명이 필요합니다. 정보제공을 동의해주세요.");
-                naverLogin.reprompt();
-                return ;  
-            }else{
-            setLoginStatus();
+            function kakaoLogin() {
+            window.Kakao.Auth.login({
+                scope: 'profile_nickname, account_email, age_range', // 개인정보 동의항목
+                success: function(response) {
+                    console.log(response) // 로그인 성공하면 받아오는 데이터
+                    window.Kakao.API.request({ // 사용자 정보 가져오기 
+                        url: '/v2/user/me',
+                        success: (res) => {
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account)
+                        }
+                    });
+                    // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
             }
-    }
-        });
-        console.log(naverLogin);
-
-        function setLoginStatus(){
-        
-        const message_area=document.getElementById('message');
-        message_area.innerHTML=`
-        <h3> Login 성공 </h3>
-        // <div>user Nickname : ${naverLogin.user.nickname}</div>
-        // <div>user Age(범위) : ${naverLogin.user.age}</div>
-        // <div>user Birthday : ${naverLogin.user.birthday}</div>
-        `;
-        
-        const button_area=document.getElementById('button_area');
-        button_area.innerHTML="<button id='btn_logout'>로그아웃</button>";
-
-        const logout=document.getElementById('btn_logout');
-        logout.addEventListener('click',(e)=>{
-            naverLogin.logout();
-    location.replace("http://127.0.0.1:8000/main/");
-        })
-        }
-    </script>
-
-    <!-- 카카오톡 -->
-    <span>
-        <a href="javascript:kakaoLogin();">
-        <img src="../../../static/common/kakao_login.png" alt="카카오계정 로그인" style="height: 40px;"/>
-        </a>
-    </span>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-        window.Kakao.init('410bd47035bb782d6bd87e48f7ea5407');
-
-        function kakaoLogin() {
-        window.Kakao.Auth.login({
-            scope: 'profile_nickname, account_email, age_range', // 개인정보 동의항목
-            success: function(response) {
-                console.log(response) // 로그인 성공하면 받아오는 데이터
-                window.Kakao.API.request({ // 사용자 정보 가져오기 
-                    url: '/v2/user/me',
-                    success: (res) => {
-                        const kakao_account = res.kakao_account;
-                        console.log(kakao_account)
-                    }
-                });
-                // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
-            },
-            fail: function(error) {
-                console.log(error);
-            }
-        });
-        }
-    </script>
-</div>
-</div>
-
-    
-{% endblock body %}
+        </script>
+    </div>
+</body>
+</html>

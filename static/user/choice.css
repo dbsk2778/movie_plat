@@ -1,5 +1,5 @@
 body {
-    background: rgba(12, 12, 12, 0.9);
+    background: rgb(12, 12, 12);
 }
 
 h1 {
@@ -29,7 +29,12 @@ input[type="checkbox"][id^="myCheckbox"] {
 }
 
 .buttons {
+    background-color: gray;
+    color:rgb(100,240,80);
+    font-size: small;
     text-align: center;
+    margin: auto;
+    display:block;
 }
   
 label {
@@ -41,7 +46,7 @@ label {
 }
   
 label:before {
-    background-color: rgba(12, 12, 12, 0.9);
+    background-color: rgb(12, 12, 12);
     content: " ";
     display: block;
     position: absolute;
@@ -56,8 +61,8 @@ label:before {
 }
   
 label img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
 }
