@@ -6,28 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>플랫폼에 오신걸 환영합니다.</title>
     <link rel="stylesheet" href="../../static/common/home.css">
+    <link rel="stylesheet" href="../../static/user/search.css">
+    <link rel="stylesheet" href="../../static/common/menu_style.css">
+    <script src="../../static/user/search.js"></script>
 </head>
 <header>
-    <div class="menuBar">
-        <h1 class="menu_h1">Platform</h1>
-        <nav>
-            <ul class="menu_bar1">
-                <li class="menu_li"><a href="{% url 'user:logout' %}" class="menu_a">Logout</a></li>
-                <li class="menu_li"><a href="#" class="menu_a">Profile</a></li>                    
-                <li>
-                    <div class="frm1">
-                        <form action="{% url 'searchapi:search_api' %}" method="GET">
-                            <input type="text" id="search1" name="q" placeholder="Search for something...">
-                            <input type="submit" id="search2" value="Search"> 
-                        </form>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <a href="{% url 'home' %}"><h1 id="title">Movie Plat</h1></a>
+    <nav>
+        <ul class="menu">
+            <li>
+                <div>
+                    <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf" onsubmit="return checkForm()">
+                        <input type="text" id="search1" name="q" placeholder="Search for something..." required>
+                        <input type="submit" id="search2" value="Search" > 
+                    </form>
+                </div>
+            </li>
+            <li><a href="{% url 'user:login' %}">login</a></li>
+            <li><a href="{% url 'user:signup' %}">Sign Up</a></li>
+        </ul>
+    </nav>
+</header> 
 <body>
+    <h2>실시간 인기 컨텐츠</h2>
+    <br><br>
     <img src="../../static/img/cat.png">
-    <p class="p1">플랫폼에 오신걸 환영합니다.</p>
 </body>
 </html>
