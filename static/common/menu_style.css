@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
 
 /* reset */
 *{margin: 0; padding: 0;}
@@ -7,7 +7,7 @@ a{text-decoration: none;}
 
 /* common */
 .wrapper{width: 1400px; margin: 0 auto; 
-    font-family: 'Trispace', sans-serif;   
+    
 
 }
 .claerpix{content: ''; display: block; clear: both;}
@@ -23,7 +23,5 @@ h1{color:white; line-height: 75px; float: left;
 .menu li{float:left; }
 .menu a{line-height: 20px; color:white; padding: 0 15px; display: block; 
     margin-right: 15px;
-
-
-
+}
 

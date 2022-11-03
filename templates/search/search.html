@@ -8,27 +8,38 @@
         <title>Search</title>
         <link rel="stylesheet" href="../../static/user/search.css">
         <link rel="stylesheet" href="../../static/common/menu_style.css">
-        <!-- <script src="../../../static/common/dist/script.js"></script> -->
+        <script src="../../static/user/search.js">
+
+        function checkForm() {
+            var sub = document.getElementById("search1");
+            // 아이디 입력 유무 체크
+            if(sub.length == 0) {
+                // window.alert("검색어를 입력해주세요");
+                // document.sf.search1.focus();
+                // document.getElementById('sub').select();
+                alert("검색어를 입력해주세요.")
+                
+                return false; // 입력이 안되어 있다면 submin 이벤트를 중지
+            }
+        }
+        </script>
     </div>
 </head>
 <body>
     <div class="wrapper">
         <header>
-            <h1>Platform</h1>
+            <!-- platform 글자 누르면 메인페이지 이동 기능 추가 -->
+            <h1 id="title">Movie Plat</h1>
             <nav>
                 <ul class="menu">
                     <li>
                         <div>
-                            <form action="{% url 'searchapi:search_api' %}" method="GET">
-                                <input type="text" id="search1" name="q" placeholder="Search for something...">
-                                <input type="submit" id="search2" value="Search"> 
+                            <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf" onsubmit="return checkForm()">
+                                <input type="text" id="search1" name="q" placeholder="Search for something..." required>
+                                <input type="submit" id="search2" value="Search" > 
                             </form>
                         </div>
                     </li>
-                    <li>
-                        
-                    </li>
-                    <!-- <li><a href="{% url 'searchapi:search_api' %}">Search</a></li> -->
                     <li><a href="{% url 'user:login' %}">login</a></li>
                     <li><a href="{% url 'user:signup' %}">Sign Up</a></li>
                 </ul>
@@ -39,41 +50,23 @@
         <section>
             <div>
                 {% for item in items %}
-                <ul>
-                    <p>{% if forloop.counter %}</p>
-                        <div style="border:1px solid #232323; float: left; width: 20%; padding:10px; margin:20px;">
-                            <div>
-                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>  
-                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>  
-                            </div>
+                <!-- <p>{{ forloop.counter }}</p> -->
+                    <div class="imgBoxDiv">
+                        <div class="imgDiv">
+                            <img src="{{item.image}}" width="100%" height="100%" onerror="this.src='https://images.christiandaily.co.kr/data/images/full/68175/image.jpg?w=600';"></a><br>  
                         </div>
-                    {% else %}
-                        <div div style="border:1px solid #232323; float: left; width: 20%; padding:10px;margin:20px;">
-                            <div>
-                                <p><a href="{{item.link}}"><img src="{{item.image}}" alt="" width="150" height="210"></a></p> <br>  
-                                <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>  
-                            </div>
+                        <div class="imgDescDiv">
+                            <br>
+                            <p id="title">&nbsp;&nbsp;<b>제목 : </b>{{ item.title|safe }}</p><br>
+                            <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubdate|default_if_none:"없음" }}</p> <br>
+                            <p>&nbsp;&nbsp;<b>감독</b> : {{ item.director }}</p><br>
+                            <p>&nbsp;&nbsp;<b>배우</b> : {{ item.actor }} </p><br>
+                            <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br>    
                         </div>
-                    {% endif %}
-                    </ul>
+                    </div>
                 {% endfor %}
             </div>
         </section>
     </div>
-        <!-- <div>
-            {% for item in items %}
-                <ul>
-                    <div>{{ forloop.counter }}
-                        <p><img src="{{item.image}}" alt="" width="150" height="210"></p> <br>     
-                        <p id="title" class="text_color"><b>제목</b> : {{ item.title|safe }}</p> <br>
-                        <p class="text_color">제작연도 : {{item.pubDate}}</p> <br>
-                        <p class="text_color">감독 : {{ item.director }}</p><br>
-                        <p class="text_color">배우 : {{ item.actor }} </p><br>
-                        <p class="text_color">평점 : {{ item.userRating }}</p><br>
-                    
-                    </div>
-                </ul>
-            {% endfor %}
-            </div> -->
 </body>
 </html>

@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .text_color{
     color:white;
 }
-
+input:invalid {
+    border: 3px dashed lightgray;
+  }
+  
+input:valid {
+    /* border: 3px solid black; */
+    background-color: darkgray;
+    text-align: center;
+}
 header {
+    font-family: 'Gothic A1', sans-serif;
     height: 75px;
     padding: 0;
     /* color: white; */
@@ -20,18 +29,68 @@ header {
     left: 0;
     right: 0;
 }
-body{
+header #title{
+    font-family: 'Permanent Marker', cursive;
+}
+body{ 
     background-color: #232323;
     background-attachment: fixed; 
     padding-top: 75px;
-    /* background: rgb(12, 12, 12); */
-    margin: 0;
+    /* background: rgb(12, 12, 12);  */
+    margin: 0; 
 }
 
 section{
     font-family: 'Gothic A1', sans-serif;
-    font-size: small;
+    font-size: x-small;
+    color:white;
+} 
+
+.imgBoxDiv{
+    border:1px solid black;
+    float:left;
+    /* width: 20%; */
+    /* padding:1%;  */
+    margin:2.5%; 
+    /* text-align:center; */
+    width: 180px;
+    height: 250px;
+    position:relative;
+    cursor: pointer;
+    overflow: hidden; 
 }
+
+.imgDiv{
+    width:100%;
+    height:100%;
+    position: absolute;
+    /* background-color: lightblue; */
+    z-index: 1;
+    -webkit-transition:all .5s ease;
+    transition:all .5s ease;
+    bottom: 0px;
+    overflow: hidden;
+}
+
+.imgBoxDiv:hover .imgDiv{
+    bottom: 210px;
+    /* transform: scale( 1.3, 1.3 ) */
+}
+
+.imgDescDiv{
+    width: 100%;
+    height: 210px;
+    padding: 0px;
+    /* margin: 1px; */
+    color: #FFFFFF;
+    background-color: black;
+    position:absolute;
+    bottom: 0px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+}
+
 #search_div1{
     line-height: 45px;
     text-align: center ;
@@ -43,22 +102,25 @@ section{
 }
 
 .menu li div #search1{
-    /* float:left; margin-top: 30px;   */
-    border-radius: 20px;
+    
+    border-radius: 10px;
     line-height: 20px;
-    font-weight: bold;
-    font-family: 'Trispace', sans-serif;
+    font-weight: 200;
+    font-family: 'Gothic A1', sans-serif;
+
 }
 .menu li div #search2{
     /* float:left; margin-top: 30px;*/
     /* border-radius: 20px; */
-    margin-right: 20px;
+    margin-right: 25px;
+    padding-left: 10px;
     line-height: 20px;
     font-weight: bold;
     font-size: medium;
     background-color: black;
     color: white;
-    font-family: 'Trispace', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+
     /* margin: 5px; */
 }
 

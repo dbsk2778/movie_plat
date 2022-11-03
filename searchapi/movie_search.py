@@ -101,11 +101,11 @@ for start_index in range(start, end, display):
 print(movie_df) 
 
 # to_sql : db 넣기
-movie_df.to_sql(name='search_movie',con=engine, if_exists='replace')
+# movie_df.to_sql(name='search_movie',con=engine, if_exists='replace')
 
-select_sql = "SELECT * FROM search_movie"
+# select_sql = "SELECT * FROM search_movie"
 
-selected_df = pd.read_sql_query(select_sql, engine, index_col='date')
+# selected_df = pd.read_sql_query(select_sql, engine, index_col='date')
 
 
 
