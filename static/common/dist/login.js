@@ -1,3 +1,4 @@
+// 아이디, 비밀번호 입력 후 넘어가는 next button 관련
 $('.nextBtn').on('click',function(){
   var parentRef =  $(this).parent();
   var inputVal = parentRef.find('input').val();
@@ -13,16 +14,12 @@ $('.nextBtn').on('click',function(){
   if(!parentRef.hasClass('lastField')){
    parentRef.addClass('hide'); 
    parentRef.next().addClass('shown').addClass('visible');
-   $('.bullets span.active').removeClass('active').next().addClass('active');
   } else {
-    $('.container').css('background','#fff').html($('.spinnerWrapper').html());
-    setTimeout(function(){
-      $('.container').html('<div class="success"><i class="fa fa-check"></i><h2>Account Created</h2></div>');
-    },4000);
   }
   $('.container').removeClass('error');
 });
 
+// 이메일, 비밀번호 체크 관련
 function checkLength(data,length){
   data = $.trim(data);
   if(data.length < length){

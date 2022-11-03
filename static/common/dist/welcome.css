@@ -1,0 +1,175 @@
+/* @s */
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
+
+
+
+/* 뭔가의 배경 테두리 */
+body {
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+  }
+  
+  /* 배경 */
+  .overlay-img:hover .des p, .overlay-img:focus .des p {
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* 배경 */
+  .header {
+    z-index: 990;
+    position: relative;
+    height: 100%;
+    min-height: 600px;
+    text-align: center;
+    color: #fff;
+    background-image: url(../background.jpg);
+    background-size: cover;
+    background-position: center;
+    -webkit-transition: .2s;
+    transition: .2s;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+  }
+  
+  /* 그림자 */
+  .header .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: -webkit-radial-gradient(48% 42%, 140% 110%, rgba(33, 37, 41, 0.5), rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.7), rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.93), #212529 55%, #212529 200%);
+    background-image: radial-gradient(140% 110% at 48% 42%, rgba(33, 37, 41, 0.5), rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.7), rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.93), #212529 55%, #212529 200%);
+  }
+
+.header-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  margin: 0;
+   
+}
+  
+
+.container {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:background 200ms ease;
+  }
+
+.content {
+    padding: 2em 1em 5em;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.box {
+    padding: 1em 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.title {
+    float: left;
+    min-width: 150px;
+    max-width: 250px;
+    display: block;
+    margin: 1em;
+    padding: 1em 2em;
+    color: #fff;
+}
+
+.bg-3 {
+color: #fff;
+}
+
+.button {
+    float: left;
+    min-width: 150px;
+    max-width: 250px;
+    display: block;
+    margin: 1em;
+    padding: 1em 2em;
+    border: none;
+    background: none;
+    color: inherit;
+    /* vertical-align: middle; */
+    position: relative;
+    z-index: 1;
+    /* -webkit-backface-visibility: hidden; */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.bg-3 .button {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .button--wayra {
+    overflow: hidden;
+    width: 245px;
+    -webkit-transition: border-color 0.3s, color 0.3s;
+    transition: border-color 0.3s, color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .button--wayra::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: #37474f;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+  }
+  .button--wayra:hover {
+    color: #fff;
+    border-color: #0f962c;
+  }
+  .button--wayra.button--inverted:hover {
+    color: #0f962c;
+    border-color: #fff;
+  }
+  .button--wayra:hover::before {
+    opacity: 1;
+    background-color: #0f962c;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .button--wayra.button--inverted:hover::before {
+    background-color: #fff;
+  }
