@@ -48,10 +48,9 @@
     </div>
     <div>
         <section>
-            {% for item in items %}
-                <div id="sec">
+            <div id="sec" >
+                {% for item in items %}
                 <!-- <p>{{ forloop.counter }}</p> -->
-
                     <div class="imgBoxDiv">
                         <div class="imgDiv">
                             <img src="{{item.image}}" width="100%" height="100%" onerror="this.src='https://images.christiandaily.co.kr/data/images/full/68175/image.jpg?w=600';"></a><br>  
@@ -62,16 +61,14 @@
                             <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubdate|default_if_none:"없음" }}</p> <br>
                             <p>&nbsp;&nbsp;<b>감독</b> : {{ item.director }}</p><br>
                             <p>&nbsp;&nbsp;<b>배우</b> : {{ item.actor }} </p><br>
-                            <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br> 
-                            <p id="naverlink"><a href="{{item.link}}"><b>더보기</b></a></p>
+                            <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br>    
+                        </div>
+                        <div class="titleBox">
+                            <p>{{ item.title|safe }}</p><br>
                         </div>
                     </div>
-                    <div class="titleBox">
-                        <p>{{ item.title|safe }}</p><br>
-                    </div>
-                </div>
-            {% endfor %}
-            
+                {% endfor %}
+            </div>
         </section>
     </div>
 </body>

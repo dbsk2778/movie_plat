@@ -42,29 +42,19 @@ body{
 
 section{
     font-family: 'Gothic A1', sans-serif;
-    font-size: small;
+    font-size: x-small;
     color:white;
 } 
-#sec{
-    width:200px;
-    height:280px;
-    border:1px solid #232323;
-    float:left;
-    padding:1%; 
-    margin:1%; 
 
-
-}
 .imgBoxDiv{
-    border-radius: 15px;
-
-    border:1px solid #232323;
+    border:1px solid black;
     float:left;
-    width:100%;
-    height:100%;
+    /* width: 20%; */
+    /* padding:1%;  */
     margin:2.5%; 
     /* text-align:center; */
-    /* width: 180px; */
+    width: 180px;
+    height: 250px;
     position:relative;
     cursor: pointer;
     overflow: hidden; 
@@ -87,14 +77,6 @@ section{
     /* transform: scale( 1.3, 1.3 ) */
 }
 
-.titleBox{
-    border:1px solid #232323;
-    width:100%;
-    height:100%;
-    text-align: center;
-    /* font-size: small; */
-}
-
 .imgDescDiv{
     width: 100%;
     height: 210px;
@@ -107,10 +89,6 @@ section{
     overflow: hidden; 
     text-overflow: ellipsis;
     /* white-space: nowrap; */
-}
-
-#naverlink{
-    text-align: center;
 }
 
 #search_div1{
