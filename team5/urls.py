@@ -29,4 +29,5 @@ urlpatterns = [
     path('searchapi/', include('searchapi.urls')),
     # path('searchapi/', include('searchapi.urls')),
     path('choice/', generic.TemplateView.as_view(template_name='user/choice.html'), name='choice'),
+    path('movie/', include('movie.urls')),
 ]

@@ -1,0 +1,14 @@
+{% for movie_data in obj%}
+
+<img src = "https://image.tmdb.org/t/p/w500/{{movie_data.poster_path}}"><br/>
+<img src = "https://image.tmdb.org/t/p/w500/{{movie_data.backdrop_path}}"><br/>
+{{movie_data.title}}<br/>
+{{movie_data.overview}}<br/>
+{{movie_data.adult}}<br/>
+{{movie_data.genres}}<br/>
+{{movie_data.id}}<br>
+<br><br><br>
+
+{% endfor %}
+
+

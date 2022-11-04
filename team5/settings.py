@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'movie.apps.MovieConfig',
     'board.apps.BoardConfig',
     'user.apps.UserConfig',
     'searchapi.apps.SearchapiConfig',
