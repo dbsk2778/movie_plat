@@ -5,15 +5,6 @@
 .text_color{
     color:white;
 }
-input:invalid {
-    border: 3px dashed lightgray;
-  }
-  
-input:valid {
-    /* border: 3px solid black; */
-    background-color: darkgray;
-    text-align: center;
-}
 
 header {
     font-family: 'Gothic A1', sans-serif;
@@ -30,6 +21,7 @@ header {
     left: 0;
     right: 0;
 }
+
 header #title{
     font-family: 'Permanent Marker', cursive;
 }
@@ -55,13 +47,12 @@ section{
     float:left;
     padding:1%; 
     margin:1%; 
-    margin-bottom: 2%;
 }
 
 .imgBoxDiv{
     border-radius: 15px;
     border:1px solid #232323;
-    /* border:1px solid rgba(12,12,12,0.9); */
+    /* border:1px solid white; */
     float:left;
     width:100%;
     height:100%;
@@ -74,20 +65,15 @@ section{
 }
 
 .imgDiv{
+    float:left;
     width:100%;
     height:100%;
     position: absolute;
-    /* background-color: lightblue; */
     z-index: 1;
     -webkit-transition:all .5s ease;
     transition:all .5s ease;
     bottom: 0px;
     overflow: hidden;
-}
-
-.imgBoxDiv:hover .imgDiv{
-    bottom: 210px;
-    /* transform: scale( 1.3, 1.3 ) */
 }
 
 .titleBox{
@@ -98,51 +84,24 @@ section{
     /* font-size: small; */
 }
 
-.starBox{
-    border:1px solid #232323;
-    width:100%;
-    height:100%;
-    text-align: center;
-    /* font-size: small; */
-}
-
-.imgDescDiv{
-    width: 100%;
-    height: 210px;
-    padding: 0px;
-    /* margin: 1px; */
-    color: #FFFFFF;
-    /* ? */
-    background-color:black;
-    position:absolute;
-    bottom: 0px;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
-}
-
-#naverlink{
-    text-align: center;
-}
-
 #search_div1{
     line-height: 45px;
     text-align: center ;
     /* 텍스트 가운데 정렬 */
 }
-
 #search_div2{
     line-height: 25px;
     /* text-align: center ; */
 }
 
 .menu li div #search1{
+    
     border-radius: 10px;
     line-height: 20px;
     font-weight: 200;
     font-family: 'Gothic A1', sans-serif;
-}
 
+}
 .menu li div #search2{
     /* float:left; margin-top: 30px;*/
     /* border-radius: 20px; */

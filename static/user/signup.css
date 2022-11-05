@@ -39,7 +39,7 @@ header {
 }
 
 body{
-    background-color: rgb(12, 12, 12);
+    background:rgba(12,12,12,0.9);
     background-attachment: fixed; 
     padding-top: 75px;
     margin: 0;

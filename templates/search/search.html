@@ -1,3 +1,5 @@
+{% load mathfilters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +10,29 @@
         <title>Search</title>
         <link rel="stylesheet" href="../../static/user/search.css">
         <link rel="stylesheet" href="../../static/common/menu_style.css">
-        <script src="../../static/user/search.js">
-
-        function checkForm() {
-            var sub = document.getElementById("search1");
-            // 아이디 입력 유무 체크
-            if(sub.length == 0) {
-                // window.alert("검색어를 입력해주세요");
-                // document.sf.search1.focus();
-                // document.getElementById('sub').select();
-                alert("검색어를 입력해주세요.")
-                
-                return false; // 입력이 안되어 있다면 submin 이벤트를 중지
-            }
-        }
-        </script>
+        <script src="../../static/user/search.js"></script>
+       
+         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+         <script src="https://cdn.jsdelivr.net/gh/hiphop5782/score@0.0.2/score.js"></script>
+         <script>
+             $(function(){
+                $(".test-score1").score();
+                $(".test-score2").score({
+                    editable:true,
+                    display:{
+                    showNumber:true,
+                    placeLimit:2
+                }
+            });
+            $(".test-score3").score({
+                editable:true,
+                integerOnly:true,
+                display:{
+                    showNumber:true
+                }
+            });
+        });
+         </script>
     </div>
 </head>
 <body>
@@ -49,8 +59,6 @@
         <section>
             {% for item in items %}
                 <div id="sec">
-                <!-- <p>{{ forloop.counter }}</p> -->
-
                     <div class="imgBoxDiv">
                         <div class="imgDiv">
                             <img src="{{item.image}}" width="100%" height="100%" onerror="this.src='https://images.christiandaily.co.kr/data/images/full/68175/image.jpg?w=600';"></a><br>  
@@ -58,15 +66,17 @@
                         <div class="imgDescDiv">
                             <br>
                             <!-- <p>&nbsp;&nbsp;<b>제목 : </b>{{ item.title|safe }}</p><br> -->
-                            <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubdate|default_if_none:"없음" }}</p> <br>
+                            <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubDate }}년</p> <br>
                             <p>&nbsp;&nbsp;<b>감독</b> : {{ item.director }}</p><br>
                             <p>&nbsp;&nbsp;<b>배우</b> : {{ item.actor }} </p><br>
-                            <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br> 
+                            <!-- <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br>  -->
                             <p id="naverlink"><a href="{{item.link}}"><b>더보기</b></a></p>
                         </div>
                     </div>
                     <div class="titleBox">
                         <p>{{ item.title|safe }}</p><br>
+                        <div class="test-score1" data-max="5" data-rate="{{ item.userRating|div:2 }}"><b>&nbsp;{{ item.userRating }}&nbsp;&nbsp;&nbsp;</b></div><br>
+                        <!-- <hr> -->
                     </div>
                 </div>
             {% endfor %}

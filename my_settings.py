@@ -5,8 +5,8 @@ DATABASES = {
         'NAME' : 'mymovie',
         'USER' : 'director',
         'PASSWORD' : '1234',
-        'HOST' : '192.168.245.68',
-        # 'HOST' : '127.0.0.1',
+        # 'HOST' : '192.168.245.68',
+        'HOST' : '127.0.0.1',
         'PORT' : '3306',
     }
 }

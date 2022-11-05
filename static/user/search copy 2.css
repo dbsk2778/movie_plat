@@ -14,6 +14,7 @@ input:valid {
     background-color: darkgray;
     text-align: center;
 }
+
 header {
     font-family: 'Gothic A1', sans-serif;
     height: 75px;
@@ -32,6 +33,7 @@ header {
 header #title{
     font-family: 'Permanent Marker', cursive;
 }
+
 body{ 
     background-color: #232323;
     background-attachment: fixed; 
@@ -42,19 +44,30 @@ body{
 
 section{
     font-family: 'Gothic A1', sans-serif;
-    font-size: x-small;
+    font-size: small;
     color:white;
 } 
 
-.imgBoxDiv{
-    border:1px solid black;
+#sec{
+    width:200px;
+    height:280px;
+    border:1px solid #232323;
     float:left;
-    /* width: 20%; */
-    /* padding:1%;  */
+    padding:1%; 
+    margin:1%; 
+    margin-bottom: 2%;
+}
+
+.imgBoxDiv{
+    border-radius: 15px;
+    border:1px solid #232323;
+    /* border:1px solid rgba(12,12,12,0.9); */
+    float:left;
+    width:100%;
+    height:100%;
     margin:2.5%; 
     /* text-align:center; */
-    width: 180px;
-    height: 250px;
+    /* width: 180px; */
     position:relative;
     cursor: pointer;
     overflow: hidden; 
@@ -77,13 +90,30 @@ section{
     /* transform: scale( 1.3, 1.3 ) */
 }
 
+.titleBox{
+    border:1px solid #232323;
+    width:100%;
+    height:100%;
+    text-align: center;
+    /* font-size: small; */
+}
+
+.starBox{
+    border:1px solid #232323;
+    width:100%;
+    height:100%;
+    text-align: center;
+    /* font-size: small; */
+}
+
 .imgDescDiv{
     width: 100%;
     height: 210px;
     padding: 0px;
     /* margin: 1px; */
     color: #FFFFFF;
-    background-color: black;
+    /* ? */
+    background-color:black;
     position:absolute;
     bottom: 0px;
     overflow: hidden; 
@@ -91,24 +121,28 @@ section{
     /* white-space: nowrap; */
 }
 
+#naverlink{
+    text-align: center;
+}
+
 #search_div1{
     line-height: 45px;
     text-align: center ;
     /* 텍스트 가운데 정렬 */
 }
+
 #search_div2{
     line-height: 25px;
     /* text-align: center ; */
 }
 
 .menu li div #search1{
-    
     border-radius: 10px;
     line-height: 20px;
     font-weight: 200;
     font-family: 'Gothic A1', sans-serif;
-
 }
+
 .menu li div #search2{
     /* float:left; margin-top: 30px;*/
     /* border-radius: 20px; */
