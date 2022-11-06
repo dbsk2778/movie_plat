@@ -53,7 +53,7 @@ section{
     height:280px;
     border:1px solid #232323;
     float:left;
-    padding:1%; 
+    /* padding:0.5%;  */
     margin:1%; 
     margin-bottom: 2%;
 }
