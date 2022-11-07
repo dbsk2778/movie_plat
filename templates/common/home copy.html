@@ -27,5 +27,28 @@
     </nav>
 </header> 
 <body>
+    <section>
+        <br>
+        <h2>&nbsp;&nbsp;&nbsp;실시간 인기 컨텐츠</h2>
+        
+        <div class="main">
+            <div class="slider">
+                {% for movie_data in obj %}
+                <img src = "https://image.tmdb.org/t/p/w500/{{movie_data.poster_path}}">
+                {% endfor %}
+            </div>
+            <!-- <img src = "https://image.tmdb.org/t/p/w500/{{movie_data.backdrop_path}}"><br/> -->
+            <!-- <div class="imgDescDiv"> -->
+                <!-- {{movie_data.title}}<br/> -->
+                <!-- {{movie_data.overview}}<br/>
+                {{movie_data.adult}}<br/>
+                {{movie_data.genres}}<br/>
+                {{movie_data.id}}<br>  -->
+            <!-- </div> -->
+            <!-- <p class="controls">
+                <span class="prev">prev</span>
+                <span class="next">next</span>
+            </p> -->
+        </div>
 </body>
 </html>
