@@ -1,54 +1,87 @@
-from django.shortcuts import render
-from .models import Movie
-import json
-import requests
+from django.shortcuts import render, redirect
+from django.views.decorators.http import require_GET, require_POST
+from django.http.response import JsonResponse
+from .models import Movie, Genre
 
 
-my_api_key = '0e8214551d621b3afb24dfa745c02cfa'
-
-def movie_data(request):
-    url = 'https://api.themoviedb.org/3/movie/popular?api_key=0e8214551d621b3afb24dfa745c02cfa&language=ko-KR&page=1'
-    response = requests.get(url)
-    #response 객체 안에는 우리가 보낸 url의 응답 객체 그 자체
-
-    resdata = response.text
-    # 응답 객체 그 자체를 가공해 정보로 만든 것이 .text
-    
-    obj = json.loads(resdata)
-    # python에서는 python객체를 사용해야하기때문에 json을 import한 후 python 객체로 가공해 담아준다.
-    
-    # json formatter를 이용해 result만 담은 obj 생성
-    obj = obj['results']
-    return render(request, 'common/home.html', {'obj':obj})
+@require_GET
+def movie(request):
+    movies = Movie.objects.all()
+    context = {
+        'movies': movies,
+    }
+    return render(request, 'movie/movie.html', context)
 
 
+@require_GET
+def choice(request):
+    movies = Movie.objects.all()
+    context = {
+        'movies': movies,
+    }
+    return render(request, 'user/choice.html', context)
+
+# @require_GET
+# def detail(request, movie_pk):
+#     movie = get_object_or_404(Movie, pk=movie_pk)
+#     comments = movie.moviereview_set.all()
+#     movie_comment_form = MovieReviewForm()
+#     context = {
+#         'movie': movie,
+#         'movie_comment_form': movie_comment_form,
+#         'comments': comments,
+#     }
+#     return render(request, 'movies/detail.html', context)
+
+
+# @require_GET
+# def recommend(request):
+#     movies = Movie.objects.all()
+#     context = {
+#         'movies': movies,
+#     }
+#     return render(request, 'movies/recommend.html', context)
+
+
+# @require_GET
+# def recommendpopularity(request):
+#     if request.user.is_authenticated:
+#         movies = Movie.objects.order_by('-popularity')[:20]
+#         context = {
+#             'movies':movies,
+#         }
+#         return render(request, 'movies/recommendpopularity.html', context)
+#     return render(request, 'accounts/login.html', context)
+
+
+# @require_GET
+# def recommendvoteaverage(request):
+#     if request.user.is_authenticated:
+#         movies = Movie.objects.order_by('-vote_average')[:20]
+#         context = {
+#             'movies':movies,
+#         }
+#         return render(request, 'movies/recommendvoteaverage.html', context)
+#     return render(request, 'accounts/login.html', context)
+
+
+@require_GET
 def genre(request):
-    url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=0e8214551d621b3afb24dfa745c02cfa&language=ko-KR'
-    response = requests.get(url)
-    #response 객체 안에는 우리가 보낸 url의 응답 객체 그 자체
+    # if request.user.is_authenticated:
+    if request.GET.get('genreId'):
+        genrebox = request.GET.get('genreId')
+        movies = Movie.objects.filter(genre_ids=genrebox)
+        movies_json = []
 
-    resdata = response.text
-    # 응답 객체 그 자체를 가공해 정보로 만든 것이 .text
-    
-    obj = json.loads(resdata)
-    # python에서는 python객체를 사용해야하기때문에 json을 import한 후 python 객체로 가공해 담아준다.
-    
-    # json formatter를 이용해 result만 담은 obj 생성
-    obj = obj['genres']
-    return render(request, 'movie.html', {'obj':obj})
+        for movie in movies:
+            movies_json.append({
+                'title': movie.title,
+            })
+        return JsonResponse({'text': movies_json})
 
-
-def detail(request):
-    url = 'https://api.themoviedb.org/3/movie/{movie_id}?api_key=0e8214551d621b3afb24dfa745c02cfa&language=ko-KR'
-    response = requests.get(url)
-    #response 객체 안에는 우리가 보낸 url의 응답 객체 그 자체
-    resdata = response.text
-    # 응답 객체 그 자체를 가공해 정보로 만든 것이 .text
-    obj = json.loads(resdata)
-    # python에서는 python객체를 사용해야하기때문에 json을 import한 후 python 객체로 가공해 담아준다.
-    
-    # json formatter를 이용해 result만 담은 obj 생성
-
-    obj = obj['genres']
-
-    return render(request, 'detail.html', {'obj':obj})
+    genres = Genre.objects.all()
+    context = {
+        'genres': genres,
+    }
+    return render(request, 'movies/recommendgenre.html', context)
+    # return render(request, 'accounts/login.html', context)

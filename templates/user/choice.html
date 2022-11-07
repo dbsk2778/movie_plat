@@ -13,53 +13,124 @@
         <form name="check1" action="{% url 'home' %}" method="get">
             {% csrf_token %}
             <ul class="ul_icon">
-                <li>
+                <!-- 28, 킹스맨: 퍼스트 에이전트 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox1" />
-                    <label for="myCheckbox1"><img src="../../static/img/cat.png" /></label>
+                    <label for="myCheckbox1"><img src="https://image.tmdb.org/t/p/w500/vOai6V9hsIqZu15zDKydPmzu4EN.jpg" /></label>
+                    <p>액션</p>
                 </li>
-
-                <li>
+                <!-- 12, 케리비안의 해적: 블랙 펄의 저주 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox2" />
-                    <label for="myCheckbox2"><img src="../../static/img/cat2.png" /></label>
+                    <label for="myCheckbox2"><img src="https://image.tmdb.org/t/p/w500/3ovejwQO4fKOWx4VgGBJeT8CKCn.jpg" /></label>
+                    <p>모험</p>
                 </li>
-
-                <li>
+                <!-- 16, 니모를 찾아서3  -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox3" />
-                    <label for="myCheckbox3"><img src="../../static/img/weare_img1.png" /></label>
+                    <label for="myCheckbox3"><img src="https://image.tmdb.org/t/p/w500/9ViCYfZ0whpwtKbM2WJP5PfsG2x.jpg" /></label>
+                    <p>애니메이션</p>
                 </li>
-
-                <li>
+                <!-- 35, 슈퍼배드 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox4" />
-                    <label for="myCheckbox4"><img src="../../static/img/weare_img2.png" /></label>
+                    <label for="myCheckbox4"><img src="https://image.tmdb.org/t/p/w500/cMWAzncszzIC1JivtQujZXk4lrJ.jpg" /></label>
+                    <p>코미디</p>
                 </li>
-            </ul>
-        <div>
-            <h1>국가 선택</h1>
-            <p>국가를 선택해주세요.</p>
-        </div>
-            <ul class="ul_icon">
-                <li>
+                <!-- 80 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox5" />
-                    <label for="myCheckbox5"><img src="../../static/img/cat.png" /></label>
+                    <label for="myCheckbox5"><img src="https://image.tmdb.org/t/p/w500/zx7sXrMISbs8RI4URbjPyKocRgP.jpg" /></label>
+                    <p>범죄</p>
                 </li>
-
-                <li>
+                <!-- 99 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox6" />
-                    <label for="myCheckbox6"><img src="../../static/img/cat2.png" /></label>
+                    <label for="myCheckbox6"><img src="https://image.tmdb.org/t/p/w500/seeEc3xNttsx308AB0iFtqKVyjG.jpg" /></label>
+                    <p>다큐멘터리</p>
                 </li>
-
-                <li>
+                <!-- 18, 트와일라잇 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox7" />
-                    <label for="myCheckbox7"><img src="../../static/img/weare_img1.png" /></label>
+                    <label for="myCheckbox7"><img src="https://image.tmdb.org/t/p/w500/2yGW99KWCPpCBbi4aPIZyWb5OzE.jpg" /></label>
+                    <p>드라마</p>
                 </li>
-
-                <li>
+                <!-- 10751, 심슨가족 더 무비 -->
+                <li class="box">
                     <input type="checkbox" id="myCheckbox8" />
-                    <label for="myCheckbox8"><img src="../../static/img/weare_img2.png" /></label>
+                    <label for="myCheckbox8"><img src="https://image.tmdb.org/t/p/w500/ibamiFS4ifL7jtMfi5yDoPERC6p.jpg" /></label>
+                    <p>가족</p>
+                </li>
+                <!-- 14, 해리포터와 마법사의 돌 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox9" />
+                    <label for="myCheckbox9"><img src="https://image.tmdb.org/t/p/w500/unEtC8uWn2lcQLnwKG9PZJX0h0c.jpg" /></label>
+                    <p>판타지</p>
+                </li>
+                <!-- 36, 체르노빌 1986 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox10" />
+                    <label for="myCheckbox10"><img src="https://image.tmdb.org/t/p/w500/9SSszIQFoJ7dW8ORCw9mWYCGi17.jpg" /></label>
+                    <p>역사</p>
+                </li>
+                <!-- 27, 컨저링 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox11" />
+                    <label for="myCheckbox11"><img src="https://image.tmdb.org/t/p/w500/yxPlLa5p54Wk1o2koiW4hqn4wfG.jpg" /></label>
+                    <p>공포</p>
+                </li>
+                <!-- 10402, 코코 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox12" />
+                    <label for="myCheckbox12"><img src="https://image.tmdb.org/t/p/w500/6AANwKhjIEVyya95oW4IA6joL1Z.jpg" /></label>
+                    <p>음악</p>
+                </li>
+                <!-- 9648, 에놀라홈즈2 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox13" />
+                    <label for="myCheckbox13"><img src="https://image.tmdb.org/t/p/w500/S6fDnntDjduIWuLW2GcqFasobD.jpg"/></label>
+                    <p>미스터리</p>
+                </li>
+                <!-- 10749, 미비포유 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox14" />
+                    <label for="myCheckbox14"><img src="https://image.tmdb.org/t/p/w500/aCnkVi4QTuc7E0d0qp0SAnRA3M0.jpg" /></label>
+                    <p>로맨스</p>
+                </li>
+                <!-- 878, 어벤저스: 엔드게임 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox15" />
+                    <label for="myCheckbox15"><img src="https://image.tmdb.org/t/p/w500/z7ilT5rNN9kDo8JZmgyhM6ej2xv.jpg" /></label>
+                    <p>SF</p>
+                </li>
+                <!-- 10770, Bring It On: Cheer or Die -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox16" />
+                    <label for="myCheckbox16"><img src="https://image.tmdb.org/t/p/w500/ciRq9QUBpFWNsFKs2opG5tP157.jpg" /></label>
+                    <p>TV 영화</p>
+                </li>
+                <!-- 53 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox17" />
+                    <label for="myCheckbox17"><img src="https://image.tmdb.org/t/p/w500/8huJowZK1t7MNLEKo3dgLAxmiLW.jpg" /></label>
+                    <p>스릴러</p>
+                </li>
+                <!-- 10752, 브라더스 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox18" />
+                    <label for="myCheckbox18"><img src="https://image.tmdb.org/t/p/w500/8Sk3EAx1JV4wuzbsI1UjMosHPJM.jpg" /></label>
+                    <p>전쟁</p>
+                </li>
+                <!-- 37, 스피릿 -->
+                <li class="box">
+                    <input type="checkbox" id="myCheckbox19" />
+                    <label for="myCheckbox19"><img src="https://image.tmdb.org/t/p/w500/pCqaPcIj1Q4YhojICJCQQrwNoUN.jpg" /></label>
+                    <p>서부</p>
                 </li>
             </ul>
             <div>
-                <button class='buttons' type="submit">선택완료</button>
+                <button class='buttons' type="submit">
+                    <lable><img src="../../static/img/checkmark.png" id="checkmark" style="width:20px; height: 20px;"/>&nbsp;&nbsp;선택완료</button></lable>
             </div>
         </form>
     </div>        
