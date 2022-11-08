@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', generic.TemplateView.as_view(template_name='common/dist/welcome.html'), name='welcome'),
     path('user/', include('user.urls')),
-    path('board/', include('board.urls')),
+    # path('board/', include('board.urls')),
     path('home/', generic.TemplateView.as_view(template_name='common/home.html'), name='home'),
     # searchapi 앱의 url 파일
     path('searchapi/', include('searchapi.urls')),

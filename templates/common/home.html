@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Plat</title>
     <link rel="stylesheet" href="../../static/common/home.css">
+    <link rel="stylesheet" href="../../static/search/search.css">
     <link rel="stylesheet" href="../../static/common/menu_style.css">
     <script src="../../static/user/home.js"></script>
 </head>
@@ -15,7 +16,7 @@
         <ul class="menu">
             <li>
                 <div>
-                    <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf" onsubmit="return checkForm()">
+                    <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform">
                         <input type="text" id="search1" name="q" placeholder="Search for something..." required>
                         <input type="submit" id="search2" value="Search" > 
                     </form>

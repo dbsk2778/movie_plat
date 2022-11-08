@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: black;
+}
+
+.netflix-logo {
+    height: 15vw;
+    width: 100%;
+    text-align: center;
+}
+
+.netflix-logo img {
+    height: 100%;
+}
+
+
+
+.carousel {
+    height: 250px;
+    width: 1200px;
+    position: relative;
+}
+
+.carousel .switchLeft ,
+.carousel .switchRight {
+    color:white;
+    font-weight: bold;
+    height: 100%;
+    width: 45px;
+    line-height: 250px;
+    font-size: 25px;
+    text-align: center;
+    background: #232323;
+    font-family: sans-serif;
+    top:0;
+    z-index: 3;
+}
+
+.carousel .switchLeft {
+    position:absolute;
+    left: -20px;
+}
+
+.carousel .switchRight {
+    position:absolute;
+    right: -20px;
+}
+
+.carouselbox {
+    height:250px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    /* word-break:break-all; */
+    display: inline-block;
+    text-align: center;
+    padding: 10px !important;
+    display:flex;
+    align-items: center;
+}
+
+.carouselbox img {
+    min-width: 147px;
+    max-width: 147px;
+    height: 200px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.carouselbox img:hover {
+    transform: scale(1.3);
+    z-index: 5;
+} 
+
+.logbox {
+    height: 15vw;
+    width: 100%;
+    text-align: center;
+    margin:3%;
+    /* padding:5%; */
+    font-family: 'Gothic A1', sans-serif;
+}
+
+
+.log_btn {
+    background-color: #232323;
+    color:white;
+    font-size: medium;
+    width: 200px;
+    height: 50px;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.join_btn {
+    background-color: #232323;
+    color:white;
+    font-size: medium;
+    width: 200px;
+    height: 50px;
+    font-family: 'Gothic A1', sans-serif;
+}
+.log_btn:hover {
+    background-color: #E6E9ED;
+    font-weight : bold;
+    color:black;
+    border : 1px solid black;
+}
+
+.join_btn:hover {
+    background-color: #E6E9ED;
+    font-weight : bold;
+    color:black;
+
+    border : 1px solid black;
+}
+
+.hello {
+    width:1000px;
+    height: 100px;
+    text-align: center;
+    color:white;
+    font-family: 'Gothic A1', sans-serif;
+
+}

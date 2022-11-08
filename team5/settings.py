@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'movie.apps.MovieConfig',
-    'board.apps.BoardConfig',
     'user.apps.UserConfig',
     'searchapi.apps.SearchapiConfig',
     'django.contrib.admin',
@@ -41,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'mathfilters',
+    'django_extensions',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
