@@ -28,4 +28,11 @@ urlpatterns = [
         next_page='/'
     ), name='logout'),
 
+    
+    # 유저 프로필
+    path('profile/', views.profile_view, name='profile'),
+    path('profile/update/', views.profile_update_view, name='profile_update'),
+    path('profile/delete/', views.profile_delete_view, name='profile_delete'),
+
+
 ]
