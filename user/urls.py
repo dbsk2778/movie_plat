@@ -16,7 +16,7 @@ urlpatterns = [
     # # next_page: POST 요청 시 리다이렉트할 URL 값. 기본 값은 '/accounts/profile/'.
     path('login/', auth_views.LoginView.as_view(
         template_name='user/login.html',
-        next_page='choice'
+        next_page='movie:choice'
     ), name='login'),
 
     # 로그아웃 처리를 하는 뷰.
@@ -27,5 +27,12 @@ urlpatterns = [
         # template_name='user/user_form.html',
         next_page='/'
     ), name='logout'),
+
+    
+    # 유저 프로필
+    path('profile/', views.profile_view, name='profile'),
+    path('profile/update/', views.profile_update_view, name='profile_update'),
+    path('profile/delete/', views.profile_delete_view, name='profile_delete'),
+
 
 ]

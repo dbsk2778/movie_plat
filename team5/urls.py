@@ -23,11 +23,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', generic.TemplateView.as_view(template_name='common/dist/welcome.html'), name='welcome'),
     path('user/', include('user.urls')),
+<<<<<<< HEAD
     # path('board/', include('board.urls')),
     path('movie/', generic.TemplateView.as_view(template_name='movie/movie.html'), name='movie'),
+=======
+    path('home/', generic.TemplateView.as_view(template_name='common/home.html'), name='home'),
+>>>>>>> e7563eece0a90cb7ec7d13931db75a49384d7f25
     # searchapi 앱의 url 파일
     path('searchapi/', include('searchapi.urls')),
     # path('searchapi/', include('searchapi.urls')),
     path('choice/', generic.TemplateView.as_view(template_name='user/choice.html'), name='choice'),
     path('movie/', include('movie.urls')),
+
+    # 소셜 로그인 관련
+    path('accounts/', include('allauth.urls')),
 ]

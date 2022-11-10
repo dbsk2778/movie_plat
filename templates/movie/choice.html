@@ -1,0 +1,44 @@
+<!-- input에 id="myCheckbox1"가 삭제되어 체크박스 버튼이 보이는 중입니다 -->
+<head>
+    <link rel="stylesheet" href="../../static/movie/choice.css">
+    
+    <!-- 장르 선택 제한 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/libs/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("input[type='checkbox']").on("click",function(){
+                let count = $("input:checked[type='checkbox']").length;
+    
+                if (count > 2){
+                    $(this).prop("checked",false);
+                    alert("2개까지만 선택할 수 있습니다");
+                }
+            });
+        });
+    </script>
+    
+    <title>장르 선택</title>
+    </head>
+    
+    {% block content %}
+    <div class="container">
+        <h1>선호 장르</h1>
+        <p>좋아하는 장르 하나를 선택해주세요.</p>
+    
+        <form action="/movie/usergenre/" method="post">
+            {% csrf_token %}
+            <ul class="ul_icon">
+                {% for genre in genres %}
+                    
+                <li class="box">
+                    <label><img src="{{genre.url}}" /></label>
+                    <span class="select_button"><input type="checkbox" name="genre" value="{{genre.id}}"/>&nbsp;{{genre.name}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <button class='buttons' type="submit">선택완료</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
