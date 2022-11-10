@@ -38,21 +38,24 @@
 <body>
     <div class="wrapper">
         <header>
-            <a href="{% url 'movie' %}"><h1 id="title">Movie Plat</h1></a>
+            <a href="{% url 'movie:movie' %}"><h1 id="title" style="margin-top:17px; font-size:xx-large; font-weight: bold;">Movie Plat</h1></a>
+            <a href="{% url 'movie:recommand' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Recommand</h1></a>
+            
             <nav>
                 <ul class="menu">
                     <li>
                         <div>
                             <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
-                                <input type="text" id="search1" name="q" placeholder="Search for something..." required>
-                                <input type="submit" id="search2" value="Search" > 
+                                <input type="text" id="search1" name="q" placeholder="Search for something..." style="font-size:small; margin-top: 25px;" required >
+                                <input type="submit" id="search2" value="Search" style="margin-top: 25px;">
                             </form>
                         </div>
                     </li>
-                    <li style="margin-top:25px"><a href="{% url 'user:logout' %}">logout</a></li>
+                
+                    <li><a href="{% url 'user:logout' %}"  style="margin-top: 25px;">logout</a></li>
                 </ul>
             </nav>
-        </header> 
+        </header>
     </div>
     <div>
         <section>

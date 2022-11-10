@@ -18,8 +18,16 @@ class Movie(models.Model):
     overview = models.TextField()
     poster_path = models.CharField(max_length=200)
     genre_ids = models.ManyToManyField(Genre)
+
+class genre_recommand4(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    url = models.TextField(default='0')
+    movie_id = models.IntegerField()
+    genre_id = models.IntegerField()
     
 
 class Usergenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
+ 
