@@ -50,7 +50,7 @@ async function showHighestMovieData() {
   result.map(function(cur, index) {
     sliders2.insertAdjacentHTML(
       "beforeend",
-      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" />`
+      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );
   });
 

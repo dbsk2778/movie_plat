@@ -50,9 +50,10 @@ async function showHighestMovieData() {
   result.map(function(cur, index) {
     slider.insertAdjacentHTML(
       "beforeend",
-      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" />`
+      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick="showDetail(${cur.id})"/>`
     );
   });
 
   scrollPerClick = document.querySelector(".img-1").clientWidth + ImagePadding;
 };
+

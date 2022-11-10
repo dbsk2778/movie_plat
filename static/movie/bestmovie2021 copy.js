@@ -55,9 +55,6 @@ async function showMovieTheaterData() {
 
   scrollPerClick = document.querySelector(".img-1").clientWidth + ImagePadding;
 };
-
-
-
 async function showDetail(param) {
   // param을 가지고 api 호출해서 영화 1의 정보 가져오기
   // modal 나중에 css absolute나 fixed로 적용
@@ -86,10 +83,14 @@ async function showDetail(param) {
 
   // title, overview, release_date, vote_average
   document.getElementById("modaltext").innerHTML = "<div><br><br><b style='font-size:xx-large'>" + text['title'] + 
-  '<div style="float:right;font-size:large;margin-top:10px;"><img src="../../static/img/star.png" style="width:20px;height:20px;" />&nbsp;' + text['vote_average'] + '</div>' +
-  '</b></div><div style="font-size:x-small">개봉일자 : ' + text['release_date'] + 
-  '</div><br><br><b style="font-size:large">줄거리</b><div><br>' + 
-  text['overview'] + '</div><br>' ;
+    '</b></div><div style="font-size:x-small">개봉일자 : ' + text['release_date'] + 
+    '</div><br><br><b style="font-size:large">줄거리</b><div><br>' + 
+    text['overview'] + '</div><br><br><div>★' + text['vote_average'] + '</div>' ;
+
+  // document.getElementById("modaltext").innerHTML = "<div><br><br><b style='font-size:xx-large'>" + text['title'] + 
+  //   '</b></div>' + '</div><img src="../img/star.png" style="float:right"' + text['vote_average'] + ' />' + '<br><br><div style="font-size:x-small">개봉일자 : ' + text['release_date'] + 
+  //   '</div><br><br><b style="font-size:large">줄거리</b><div><br>' + 
+  //   text['overview'] ;
     
   
   // 아이디 modal
@@ -114,13 +115,13 @@ async function showDetail(param) {
     document.getElementById("modalyoutube").innerHTML = "<div></div>";
   } else {
     for(var i=0; i<=2; i++){
-      // console.log(youtube[i]['key']);
+      console.log(youtube[i]['key']);
       document.getElementById("modalyoutube").innerHTML = 
-      '<div><b style="font-size:large;color:white;">예고편</b><br><iframe src="https://www.youtube.com/embed/' + youtube[i]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[i]['key'] + '" frameborder="1"></iframe><div>';
+     '<iframe src="https://www.youtube.com/embed/' + youtube[i]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[i]['key'] + '"></iframe>';
       // document.getElementById("modalyoutube").insertAdjacentHTML(
       //   'beforeend',
       //   `<iframe src="https://www.youtube.com/embed/${youtube[i]['key']}?controls=&autoplay=1&loop=1&mute=1&playlist=${youtube[i]['key']}"></iframe>`
-    };
+    }
   };
   
 };

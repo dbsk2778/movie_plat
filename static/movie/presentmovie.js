@@ -22,7 +22,7 @@ function sliderScrollLeft3() {
 };
 
 function sliderScrollRight3() {
-  if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
+  if (scrollAmount <= sliders3.scrollWidth - sliders3.clientWidth) {
     sliders3.scrollTo({
       top: 0,
       left: (scrollAmount += scrollPerClick),
@@ -51,10 +51,9 @@ async function showRecentlyMovieData() {
   result.map(function (cur, index) {
     sliders3.insertAdjacentHTML(
       "beforeend",
-      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" />`
+      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );
   });
 
   scrollPerClick = document.querySelector(".img-1").clientWidth + ImagePadding;
 };
-

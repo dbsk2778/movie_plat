@@ -6,6 +6,7 @@ showMovieData();
 
 var scrollAmount = 0;
 
+var timer;
 function sliderScrollLeft() {
     sliders.scrollTo({
         top: 0,
@@ -28,7 +29,7 @@ function sliderScrollRight() {
         });
     };
 };
-
+timer = setInterval(sliderScrollRight, 3000);
 
 async function showMovieData() {
     const api_key = "7f914cd60ea3f7a8f0358344658513a7";
