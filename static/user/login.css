@@ -1,6 +1,7 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
 
+
 * {
   margin:0px;
   padding:0px;
@@ -17,22 +18,25 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  background:rgba(12,12,12,0.9);
+  background:black;
   transition:background 200ms ease;
 }
 /* 이메일이나 비밀번호 에러 시 바탕화면 색상 스타일 */
 .container.error {
   background:rgba(12,12,12,0.9);
 }
-/* 로그인 폼 제목 관련 스타일 */
-.container .title {
+
+/* 로그인 폼 제목 관련 스타일(수정 후) */ 
+#title_name {
+  color :white;
+  font-family: 'Permanent Marker', cursive;
   position:absolute;
-  top:-70px;
-  width:100%;
+  top:-150px;
+  left: -250px;
   text-align:center;
-  font-size:50px;
-  color:rgba(100,240,80,1);
+  font-size:100px;
 }
+
 /* html에서 없앤 부분, 로그인 폼 왼쪽 점 세개 스타일 */
 .bullets {
   height:0px;
@@ -116,40 +120,6 @@
   color:rgba(32,32,32,0.9);
   font-size:20px;
 }
-/* success 후에 스핀 스타일 */
-/* .spinner {
-  -webkit-animation: rotator 1.4s linear infinite;
-          animation: rotator 1.4s linear infinite;
-}
-.path {
-  stroke-dasharray: 187;
-  stroke-dashoffset: 0;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-} */
-/* seccess 관련 스타일 */
-/* .success {
-  text-align:center;
-}
-.success i {
-  font-size:35px;
-  color:rgba(40,130,70,0.9);
-  width:60px;
-  height:60px;
-  text-align:center;
-  line-height:60px;
-  border:3px solid #e7e7e7;
-  border-radius:50%;
-}
-.success h2 {
-  color:rgba(30,30,30,0.9);
-  font-weight:600;
-  text-transform:uppercase;
-  margin-top:15px;
-  font-size:22px;
-} */
 
 /* 간편 로그인 텍스트 */
 .login_text{

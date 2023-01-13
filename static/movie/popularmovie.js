@@ -42,7 +42,7 @@ async function showHighestMovieData() {
   var result = await axios.get(
     "https://api.themoviedb.org/3/movie/popular?api_key=" +
     api_key +
-    "&language=en-US&page=1"
+    "&language=ko-KR&page=1"
   );
 
   result = result.data.results;
@@ -50,7 +50,7 @@ async function showHighestMovieData() {
   result.map(function(cur, index) {
     slider.insertAdjacentHTML(
       "beforeend",
-      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick="showDetail(${cur.id})"/>`
+      `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );
   });
 

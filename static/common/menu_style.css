@@ -1,26 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 /* reset */
-*{margin: 0; padding: 0;}
-li{list-style: none;}
-a{text-decoration: none;}
-
-/* common */
-.wrapper{width: 1400px; margin: 0 auto; 
-    
-
+*{
+    margin: 0;
+    padding: 0;
 }
-.claerpix{content: ''; display: block; clear: both;}
 
-/* header */
-header{height: 75px; background-color: rgba(12,12,12,0.9);
-    border: 1px solid; position: fixed; width: 100%; z-index: 9999; top: 0px; left: 0px;
+li{
+    list-style: none;
 }
-h1{color:white; line-height: 75px; float: left;
-    margin-left: 30px;}
-.menu {float:right;}
-.menu li{float:left; }
-.menu a{line-height: 20px; color:white; padding: 0 15px; display: block; 
+
+a{
+    text-decoration: none;
+}
+
+/* 최상위 div */
+.wrapper{
+    width: 1400px;
+    /* margin: 0 auto; */
+    position: relative;
+}
+
+header {
+    font-family: 'Gothic A1', sans-serif;
+    height: 75px;
+    padding: 0;
+    background: black;
+    font-weight: bold;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+header #title{
+    font-family: 'Permanent Marker', cursive;
+}
+
+header #RTM{
+    font-size:medium;
+    font-weight: bold;
+}
+
+/* 메뉴바 오른쪽  */
+h1{
+    color:white;
+    line-height: 75px;
+    float: left;
+    margin-left: 30px;
+}
+
+/* nav 안 ul */
+.menu {
+    float:right;
+}
+.menu li{
+    float:left;
+}
+.menu a{
+    line-height: 20px;
+    color:white;
+    padding: 0 15px;
+    display: block; 
     margin-right: 15px;
 }
+.menu a:hover {
+    text-decoration: none;
+    color: white;
+}
 
+.menu li div #search1{
+    padding-top: 5px;
+    border-radius: 10px;
+    line-height: 20px;
+    font-weight: 200;
+    font-family: 'Gothic A1', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 79.5%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li div #search2{
+    margin-right: 25px;
+    padding-top: 20px;
+    line-height: 20px;
+    background-color: black;
+    font-family: 'Gothic A1', sans-serif;
+
+}

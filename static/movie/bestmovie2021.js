@@ -1,15 +1,17 @@
-const sliders4 = document.querySelector(".carouselbox4")
+const sliders5 = document.querySelector(".carouselbox5")
 var scrollPerClick;
-var ImagePadding =20;
-
+var ImagePadding = 20;
+``
 showMovieTheaterData();
+
+setIntervalmovie();
 
 var scrollAmount = 0;
 
 var timer;
 
-function sliderScrollLeft4() {
-  sliders4.scrollTo({
+function sliderScrollLeft5() {
+  sliders5.scrollTo({
     top: 0,
     left: (scrollAmount -= scrollPerClick),
     behavior: "smooth",
@@ -20,10 +22,9 @@ function sliderScrollLeft4() {
   };
 };
 
-
-function sliderScrollRight4() {
-  if (scrollAmount <= sliders4.scrollWidth - sliders4.clientWidth) {
-    sliders4.scrollTo({
+function sliderScrollRight5() {
+  if (scrollAmount <= sliders5.scrollWidth - sliders5.clientWidth) {
+    sliders5.scrollTo({
       top: 0,
       left: (scrollAmount += scrollPerClick),
       behavior: "smooth"
@@ -32,7 +33,15 @@ function sliderScrollRight4() {
   };
 };
 
-timer = setInterval(sliderScrollRight4, 3000);
+timer = setInterval(sliderScrollRight5, 3000);
+
+function setIntervalmovie() {
+  if(scrollAmount <= sliders5.scrollWidth - sliders5.clientWidth){
+    timer = setInterval(sliderScrollRight5, 3000);
+  } else {
+    timer = setInterval(sliderScrollLeft5, 3000);
+  };
+};
 
 async function showMovieTheaterData() {
   const api_key = "7f914cd60ea3f7a8f0358344658513a7";
@@ -47,7 +56,7 @@ async function showMovieTheaterData() {
   result = result.data.results;
 
   result.map(function (cur, index) {
-    sliders4.insertAdjacentHTML(
+    sliders5.insertAdjacentHTML(
       "beforeend",
       `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );
@@ -55,8 +64,6 @@ async function showMovieTheaterData() {
 
   scrollPerClick = document.querySelector(".img-1").clientWidth + ImagePadding;
 };
-
-
 
 async function showDetail(param) {
   // param을 가지고 api 호출해서 영화 1의 정보 가져오기
@@ -69,9 +76,10 @@ async function showDetail(param) {
   var result = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
   "?api_key=" + api_key 
   + "&language=ko-KR");
-
+  // console.log(result);
+  
   text = result.data;
-  // console.log(text)
+  
 
   var result2 = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
   "/videos?api_key=" + api_key 
@@ -81,7 +89,7 @@ async function showDetail(param) {
   youtube = result2.data.results;
   
 
-  document.getElementById("modalimg").innerHTML = "<div><br><br><img src='http://image.tmdb.org/t/p/w185/" + text['poster_path'] + "' style='width:350px; height:480px;'" + " /></div>";
+  document.getElementById("modalimg").innerHTML = "<div><br><br><br><img src='http://image.tmdb.org/t/p/w185/" + text['poster_path'] + "' style='width:350px; height:480px;'" + " /></div>";
   
 
   // title, overview, release_date, vote_average
@@ -100,34 +108,29 @@ async function showDetail(param) {
   close.addEventListener("click", e => {
     document.getElementById('modal').style.display = 'none';
   });
-  console.log(youtube);
-
-  // for(var i=0; i<=2; i++){
-  //   console.log(youtube[i]['key']);
-  //   document.getElementById("modalyoutube").innerHTML = 
-  //    '<iframe src="https://www.youtube.com/embed/' + youtube[i]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[i]['key'] + '"></iframe>';
-  //      // 'beforeend', 
-  //      // `<iframe src="https://www.youtube.com/embed/' + ${youtube[i]['key']} + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + ${youtube[i]['key']} + '">동영상 없음~!~!</iframe>'`
-  //  };
-
+  
   if(!youtube[0]['key']) {
     document.getElementById("modalyoutube").innerHTML = "<div></div>";
-  } else {
-    for(var i=0; i<=2; i++){
+  } else if(!youtube[1]['key']) {
       // console.log(youtube[i]['key']);
       document.getElementById("modalyoutube").innerHTML = 
-      '<div><b style="font-size:large;color:white;">예고편</b><br><iframe src="https://www.youtube.com/embed/' + youtube[i]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[i]['key'] + '" frameborder="1"></iframe><div>';
-      // document.getElementById("modalyoutube").insertAdjacentHTML(
-      //   'beforeend',
-      //   `<iframe src="https://www.youtube.com/embed/${youtube[i]['key']}?controls=&autoplay=1&loop=1&mute=1&playlist=${youtube[i]['key']}"></iframe>`
-    };
+      '<div><b style="font-size:large;color:white;">예고편</b><div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1" style="width:100px;"></iframe><div>';
+  } else {
+    document.getElementById("modalyoutube").innerHTML = 
+    '<div><b style="font-size:large;color:white;">예고편</b></div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1"></iframe>' +
+    '<iframe src="https://www.youtube.com/embed/' + youtube[1]['key'] + '?controls=&autoplay=0&loop=1&mute=1&playlist=' + youtube[1]['key'] + '" frameborder="1"></iframe><div>';
   };
   
 };
 
-// async function showYoutube(param) {
-//   // document.getElementById.innerHTML = '<h1>' + param + '</h1>';
-//   console.log(param);
-// }
-
-
+if(!youtube[0]['key']) {
+  document.getElementById("modalyoutube").innerHTML = "<div></div>";
+} else if(!youtube[1]['key']) {
+    // console.log(youtube[i]['key']);
+    document.getElementById("modalyoutube").innerHTML = 
+    '<div><b style="font-size:large;color:white;">예고편</b><div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1" style="width:100px;"></iframe><div>';
+} else {
+  document.getElementById("modalyoutube").innerHTML = 
+  '<div><b style="font-size:large;color:white;">예고편</b></div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1"></iframe>' +
+  '<iframe src="https://www.youtube.com/embed/' + youtube[1]['key'] + '?controls=&autoplay=0&loop=1&mute=1&playlist=' + youtube[1]['key'] + '" frameborder="1"></iframe><div>';
+};

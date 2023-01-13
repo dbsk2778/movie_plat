@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="../../static/common/menu_style.css">
+
+<div class="wrapper">
+    <header>
+        <!--  style="margin-top:17px; font-size:xx-large; font-weight: bold;" -->
+        <a href="{% url 'movie:movie' %}"><h1 id="title">Movie Plat</h1></a>
+        <a href="{% url 'movie:movie' %}"><h1 id="RTM">Movie</main></h1></a>
+        <a href="{% url 'movie:tvshow' %}"><h1 id="RTM">TV Show</h1></a>
+        <a href="{% url 'movie:recommend' %}"><h1 id="RTM">Recommend</h1></a>
+        
+        <nav>
+            <ul class="menu">
+                <li>
+                    <div>
+                        <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
+                            <!-- style="font-size:small; margin-top: 25px;" -->
+                            <input type="text" id="search1" name="q" placeholder="검색어를 입력하세요" required >
+                            <button type="submit" id="search2" value="Search" style="width: 30px;"><img src="../../static/img/reading_glasses.png" style="width: 30px;"></button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    {% if user.is_authenticated %}
+                    {# 로그인한 경우 #}
+                        <li style="margin-top: 28px;"><a href="{% url 'user:profile' %}">Profile</a></li>                    
+                        <li style="margin-top: 28px;"><a href="{% url 'user:logout' %}">Logout</a></li>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>

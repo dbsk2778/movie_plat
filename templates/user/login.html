@@ -4,146 +4,77 @@
   <meta charset="UTF-8">
   <title>Platform</title>
   {% load static %}
-  <link rel="stylesheet" href="../../static/common/dist/login.css">
-  <script>
-    function formCheck() {
-      document.getElementById('loginForm').submit();
-    }
-  </script>
+  <link rel="stylesheet" href="../../static/user/login.css">
+
+  <!-- 구글 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
-<!-- partial:index.partial.html -->
-<div class="container">
-  <div class="bullets">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <div class="form">
-    <!-- 로그인 폼 타이틀 문구 -->
-    <div class="title">
-      Movie Plat
+  <!-- partial:index.partial.html -->
+  <div class="container">
+    <div class="bullets">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
     </div>
-
-    <form id="loginForm" method="post">
-      {% csrf_token %}
-      <!-- 이메일을 입력받는 부분 -->
-      <div class="row visible">
-        <input name="username" type="text" placeholder="이메일을 입력해주세요." />
-        <div class="fa fa-user"></div>
-        <div class="nextBtn"><i class="fa fa-chevron-right"></i></div>
+  
+    <div class="form">
+      <!-- 로그인 폼 타이틀 문구 -->
+      <div class="title"> 
+        <a id="title_name"  style="width: 800px;"> movie plat </a>
+        <!-- <img src="../../static/img/movieplate.PNG" style="width: 400px;"> -->
       </div>
-      
-      <!-- 비밀번호를 입력받는 부분 -->
-      <div class="row lastField">
-        <input name="password" type="password" placeholder="비밀번호를 입력해주세요." />
-        <div class="fa fa-key"></div>
-        <div class="nextBtn"><i class="fa fa-chevron-right" onclick="formCheck();"></i></div>
-      </div>
-    </form>
-
-      <!-- 로그인 API 토근 -->
-      <div class="login_text">간편 로그인</div>
-      <div class="loginAPI_token">
+  
+      <form id="loginForm" method="post">
+        {% csrf_token %}
+        <!-- 이메일을 입력받는 부분 -->
+        <div class="row visible">
+          <input name="username" type="text" placeholder="이메일을 입력해주세요." />
+          <div class="fa fa-user"></div>
+          <div class="nextBtn"><i class="fa fa-chevron-right"></i></div>
+        </div>
         
-        <!-- 네이버 -->
-        <span class="login-area">
-          <span id="message">
-            <span id="button_area">
-              <span id="naverIdLogin"></span>
-            </span>
-          </span>
-        </span>
-        <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-        <script type="text/javascript">
+        <!-- 비밀번호를 입력받는 부분 -->
+        <div class="row lastField">
+          <input name="password" type="password" placeholder="비밀번호를 입력해주세요." />
+          <div class="fa fa-key"></div>
+          <div class="nextBtn"><i class="fa fa-chevron-right" onclick="formCheck();"></i></div>
+        </div>
+      </form>
+  
+        <!-- 로그인 API 토근 -->
+        <div class="login_text">&nbsp;</div>
+        <div class="loginAPI_token">
           
-          const naverLogin = new naver.LoginWithNaverId(
-        {
-          clientId: "x2OwQmHAMDAXlB3QvDnL",
-          callbackUrl: "http://127.0.0.1:8000/home/",
-          loginButton: {color: "green", type: 1, height: 40}
-        }
-        );
-        
-        
-        naverLogin.init();
-        naverLogin.getLoginStatus(function (status) {
-          if (status) {
-            const nickName=naverLogin.user.getNickName();
-            const age=naverLogin.user.getAge();
-                const birthday=naverLogin.user.getBirthday();
-    
-                if(nickName===null||nickName===undefined ){
-                  alert("별명이 필요합니다. 정보제공을 동의해주세요.");
-                  naverLogin.reprompt();
-                  return ;  
-                }else{
-                  setLoginStatus();
-                }
-              }
-            });
-            console.log(naverLogin);
-            
-            function setLoginStatus(){
-              
-              const message_area=document.getElementById('message');
-              message_area.innerHTML=`
-              <h3> Login 성공 </h3>
-              <div>user Nickname : ${naverLogin.user.nickname}</div>
-              <div>user Age(범위) : ${naverLogin.user.age}</div>
-              <div>user Birthday : ${naverLogin.user.birthday}</div>
-              `;
-              
-              const button_area=document.getElementById('button_area');
-              button_area.innerHTML="<button id='btn_logout'>로그아웃</button>";
-              
-              const logout=document.getElementById('btn_logout');
-              logout.addEventListener('click',(e)=>{
-                naverLogin.logout();
-                location.replace("http://127.0.0.1:8000/home/");
-              })
+          <!-- 카카오톡 -->
+          <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" 
+          integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+          {% load socialaccount %}
+          <!-- text-decoration:none 밑줄 제거 -->
+          
+            <h4 style=color:white;">소셜 계정으로 로그인</h4>
+          </a>
+          <p id="token-result"></p>
+          <script>
+            function loginWithKakao() {
+              Kakao.Auth.authorize({
+                redirectUri: 'http://127.0.0.1:8000/movie/movie',
+              });
             }
             </script>
+        </div>
     
-
-        <!-- 카카오톡 -->
-        <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" 
-        integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
-        <script>
-              Kakao.init('0e95a01f0cce58c6ebd027e5655e1921'); // 사용하려는 앱의 JavaScript 키 입력
-        </script>
-        {% load socialaccount %}
-        <a id="kakao-login-btn" href="{% provider_login_url 'kakao' method='oauth2' %}">
-          <img src="../../../static/common/kakao_login.png" style="height: 40px;"
-            alt="카카오 로그인 버튼" />
-        </a>
-        <p id="token-result"></p>
-        <script>
-          function loginWithKakao() {
-            Kakao.Auth.authorize({
-              redirectUri: 'http://127.0.0.1:8000/home/',
-            });
-          }
-          </script>
-      </div>
-    <!-- 로그인 API END -->
-  
+    </div>
   </div>
-</div>
-
-
-<!-- success 후에 스핀 도는 부분 -->
-  <!-- <div class="spinnerWrapper" style="display:none;">
-    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-    </svg>
-  </div> -->
   
-  <!-- partial(부분적인) -->
-  {% load static %}
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="../../../static/common/dist/login.js"></script>
+  <!-- 이거 위치 바꾸면 안넘어감 ... -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script  src="../../static/user/login.js"></script>
+    
+  </body>
   
-</body>
 </html>
