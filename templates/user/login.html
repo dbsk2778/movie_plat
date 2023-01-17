@@ -55,9 +55,10 @@
           integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
           {% load socialaccount %}
           <!-- text-decoration:none 밑줄 제거 -->
-          
+          <a id="kakao-login-btn" href="{% provider_login_url 'kakao' method='oauth2' %}" style="text-decoration:none;">
             <h4 style=color:white;">소셜 계정으로 로그인</h4>
           </a>
+         
           <p id="token-result"></p>
           <script>
             function loginWithKakao() {
