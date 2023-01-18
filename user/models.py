@@ -1,7 +1,6 @@
 from django.contrib.auth import models as auth_models
 from django.db import models
 
-
 class CustomUser(auth_models.User):
     """내장 모델 클래스인 User 클래스를 상속받아 구현한 사용자 정의 모델 클래스."""
 

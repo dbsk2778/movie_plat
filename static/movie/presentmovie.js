@@ -1,7 +1,6 @@
-const sliders3 = document.querySelector(".carouselbox3")
+const sliders4 = document.querySelector(".carouselbox4")
 var scrollPerClick;
 var ImagePadding =20;
-
 
 showRecentlyMovieData();
 
@@ -9,8 +8,8 @@ var scrollAmount = 0;
 
 var timer;
 
-function sliderScrollLeft3() {
-  sliders3.scrollTo({
+function sliderScrollLeft4() {
+  sliders4.scrollTo({
     top: 0,
     left: (scrollAmount -= scrollPerClick),
     behavior: "smooth"
@@ -21,9 +20,9 @@ function sliderScrollLeft3() {
   };
 };
 
-function sliderScrollRight3() {
-  if (scrollAmount <= sliders3.scrollWidth - sliders3.clientWidth) {
-    sliders3.scrollTo({
+function sliderScrollRight4() {
+  if (scrollAmount <= sliders4.scrollWidth - sliders4.clientWidth) {
+    sliders4.scrollTo({
       top: 0,
       left: (scrollAmount += scrollPerClick),
       behavior: "smooth"
@@ -32,7 +31,7 @@ function sliderScrollRight3() {
   };
 };
 
-timer = setInterval(sliderScrollRight3, 3000);
+timer = setInterval(sliderScrollRight4, 3000);
 
 async function showRecentlyMovieData() {
 
@@ -42,14 +41,14 @@ async function showRecentlyMovieData() {
     var result = await axios.get(
       "https://api.themoviedb.org/3/movie/now_playing?api_key=" +
       api_key +
-      "&language=en-US&page=1"
+      "&language=ko-KR&page=1"
     )
 
 
   result = result.data.results;
 
   result.map(function (cur, index) {
-    sliders3.insertAdjacentHTML(
+    sliders4.insertAdjacentHTML(
       "beforeend",
       `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );

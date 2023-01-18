@@ -33,6 +33,7 @@ def logout_view(request):
 @login_message_required
 def profile_view(request):
     if request.method == 'GET':
+
         return render(request, 'user/profile.html')
 
 

@@ -1,0 +1,87 @@
+<title>Movie Plat</title>
+{% extends '../common/menubar_movie/m_base.html' %}
+{% load mathfilters %}
+{% block body %}
+<link rel="stylesheet" href="../../static/recommend/db_recommend.css">
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiphop5782/score@0.0.2/score.js"></script>
+    <script>
+        $(function(){
+            $(".test-score1").score();
+            $(".test-score2").score({
+                editable:true,
+                display:{
+                    showNumber:true,
+                    placeLimit:2
+                }
+            });
+            $(".test-score3").score({
+                editable:true,
+                integerOnly:true,
+                display:{
+                    showNumber:true
+                }
+            });
+        });
+    </script>
+</head>
+
+<section>
+    <!-- 버튼 여러개 두고, 경로 지정 -->
+    
+    <form name="form1" class="recommend_search">
+        <!-- <div class="form_text">좋아하는 영화를 검색해보세요!</div> -->
+        <input type="text" name="recom" style="text-align: center;" class="search_box" placeholder="영화 제목을 입력해주세요." required>
+        <div>
+            <button type="submit" formaction="{% url 'movie:content_recommend' %}"
+                formmethod="get" class="search_btn">콘텐츠 기반 추천</button>
+            <button type="submit" formaction="{% url 'movie:tmdb_recommend' %}"
+                formmethod="get" class="search_btn">TMDB 추천</button>
+            <button type="submit" formaction="{% url 'movie:meta_recommend' %}"
+                formmethod="get" class="search_btn">감독/배우 기반 추천</button>
+        </div>   
+    </form>
+
+</section>
+
+<body style="background-color:#232323">
+    {% block content %}>   
+    <section class="modal" id="modal">
+        <div style="background-color: black; opacity: 0.5; position:fixed; top:0px; left:0px; width:100%; height:100%;"></div>
+        <div class="modalBox" id="modal_box">
+            <div id = "modalimg"></div>
+            <div id="modalright">
+                <div id = "modaltext"></div>
+                <div id = "modalyoutube"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="sub_text" style="text-align: center;">선택한 장르의 관련 영화들을 모두 불러옵니다.</div>
+        </div>
+
+        <div style="text-align: center;">
+            {% for movie_info in user_movieId %}
+                <li class="poster">
+                    <label> <img src="{{ movie_info.poster_path }}"></label><br>
+                    <div class="poster_title" style="color: white; text-align: center; ">{{movie_info.title | truncatechars:10}}</div>
+                    <div class="test-score1" data-max="5" data-rate="{{ movie_info.vote_average|div:2 }}" style="font-size: x-small;"><b>&nbsp;{{ movie_info.vote_average }}&nbsp;&nbsp;&nbsp;</b></div><br>
+                </li>
+            {% endfor %}
+        </div>
+    </section>
+    {% endblock %} 
+    
+</body>
+</html>
+{% endblock %}   

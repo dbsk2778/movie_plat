@@ -31,3 +31,11 @@ class Usergenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
  
+
+class Like(models.Model):
+    username = models.CharField(max_length=50)
+    title = models.CharField(max_length=10)
+    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

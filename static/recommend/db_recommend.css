@@ -1,0 +1,83 @@
+@import url('hcarouselttps://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body{
+    background-color: #161616;
+    background-attachment: fixed; 
+    padding-top: 75px;
+    margin: 0; 
+}
+
+.form_text {
+    color:white;
+    font-size: xx-large;
+    font-family: 'Gothic A1', sans-serif;
+}
+.recommend_search {
+    text-align: center;
+    height:200px;
+    margin:1%;
+    background-color:black;
+}
+
+.search_box {
+    margin-top:3%;
+    height:35px;
+    width:605px;
+}
+
+.search_btn {
+    margin-top:0.5%;
+    width:200px;
+    height:40px;
+}
+#search_text {
+    color: white;
+}
+
+.sub_text {
+    color:rgb(133, 133, 133);
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    text-align: center;
+}
+
+label {
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+}
+
+label:before {
+    background-color: rgb(12, 12, 12);
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+label img {
+    border-radius: 20px;
+    height: 280px;
+    width: 200px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+}
+
+/* 영화 제목 관련 CSS */
+.poster_title {
+    font-size: small;
+}

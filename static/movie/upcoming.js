@@ -1,15 +1,17 @@
-const sliders5 = document.querySelector(".carouselbox5")
+const sliders2 = document.querySelector(".carouselbox2")
 var scrollPerClick;
 var ImagePadding =20;
 
 showUpcomingMovieData();
+
 setIntervalmovie();
+
 var scrollAmount = 0;
 
 var timer;
 
-function sliderScrollLeft5() {
-  sliders5.scrollTo({
+function sliderScrollLeft2() {
+  sliders2.scrollTo({
     top: 0,
     left: (scrollAmount -= scrollPerClick),
     behavior: "smooth",
@@ -20,9 +22,9 @@ function sliderScrollLeft5() {
   };
 };
 
-function sliderScrollRight5() {
-  if (scrollAmount <= sliders5.scrollWidth - sliders5.clientWidth) {
-    sliders5.scrollTo({
+function sliderScrollRight2() {
+  if (scrollAmount <= sliders2.scrollWidth - sliders2.clientWidth) {
+    sliders2.scrollTo({
       top: 0,
       left: (scrollAmount += scrollPerClick),
       behavior: "smooth"
@@ -32,10 +34,10 @@ function sliderScrollRight5() {
 };
 
 function setIntervalmovie() {
-  if(scrollAmount <= sliders5.scrollWidth - sliders5.clientWidth){
-    timer = setInterval(sliderScrollRight5, 3000);
+  if(scrollAmount <= sliders2.scrollWidth - sliders2.clientWidth){
+    timer = setInterval(sliderScrollRight2, 3000);
   } else {
-    timer = setInterval(sliderScrollLeft5, 3000);
+    timer = setInterval(sliderScrollLeft2, 3000);
   };
 };
 
@@ -52,7 +54,7 @@ async function showUpcomingMovieData() {
   result = result.data.results;
 
   result.map(function (cur, index) {
-    sliders5.insertAdjacentHTML(
+    sliders2.insertAdjacentHTML(
       "beforeend",
       `<img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" onclick = "showDetail(${cur.id})"/>`
     );
@@ -64,9 +66,6 @@ async function showUpcomingMovieData() {
 
 
 async function showDetail(param) {
-  // param을 가지고 api 호출해서 영화 1의 정보 가져오기
-  // modal 나중에 css absolute나 fixed로 적용
-  // 부트스트랩 showmodal 사용
 
   const api_key = "7f914cd60ea3f7a8f0358344658513a7";
 
@@ -76,7 +75,7 @@ async function showDetail(param) {
   + "&language=ko-KR");
 
   text = result.data
-  console.log(text)
+  // console.log(text)
 
   document.getElementById("modalimg").innerHTML = "<img src='http://image.tmdb.org/t/p/w185/" + text['poster_path'] + "' style='width:300px; height:400px;'" + " />";
       

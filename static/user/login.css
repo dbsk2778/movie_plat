@@ -1,0 +1,215 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+
+* {
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/* 배경 관련 스타일 */
+.container {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  transition:background 200ms ease;
+}
+/* 이메일이나 비밀번호 에러 시 바탕화면 색상 스타일 */
+.container.error {
+  background:rgba(12,12,12,0.9);
+}
+
+/* 로그인 폼 제목 관련 스타일(수정 후) */ 
+#title_name {
+  color :white;
+  font-family: 'Permanent Marker', cursive;
+  position:absolute;
+  top:-150px;
+  left: -250px;
+  text-align:center;
+  font-size:100px;
+}
+
+/* html에서 없앤 부분, 로그인 폼 왼쪽 점 세개 스타일 */
+.bullets {
+  height:0px;
+  width:0px;
+  margin-left:-40px;
+  margin-right:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+}
+.bullets span {
+  display:block;
+  width:8px;
+  height:8px;
+  background:rgba(240,240,240,0.4);
+  border-radius:50%;
+}
+.bullets span.active {
+  background:#fff;
+}
+/* 폼 관련 스타일 */
+.form {
+  width:300px;
+  height:50px;
+  position:relative;
+}
+.form .row {
+  
+  width:100%;
+  height:100%;
+  position:absolute;
+  display:none;
+  transform-origin:top;
+}
+.form .row.visible {
+  display:inline-block;  
+}
+.form .row.shown {
+  animation:show 400ms ease forwards;
+}
+.form .row.hide {
+  animation:hide 400ms ease forwards;
+}
+.form .row > * {
+  display:block;
+}
+.form .row div.fa {
+  position:absolute;
+  top:0;
+  left:10px;
+  width:30px;
+  height:50px;
+  text-align:center;
+  line-height:50px;
+  font-size:20px;
+  color:rgba(50,50,50,0.9);
+  cursor:pointer;
+}
+.form .row input {
+  width:100%;
+  height:100%;
+  padding-left:45px;
+  border:none;
+  outline:none;
+  box-shadow:2px 6px 10px 5px rgba(20,20,20,0.5);
+  font-size:17px;
+}
+.form .row.shake {
+  transform-origin:center;
+  animation:shake 300ms linear infinite; 
+}
+.form .row div.nextBtn {
+  width:40px;
+  height:50px;
+  position:absolute;
+  right:0;
+  top:0px;
+  text-align:center;
+  line-height:50px;
+  color:rgba(32,32,32,0.9);
+  font-size:20px;
+}
+
+/* 간편 로그인 텍스트 */
+.login_text{
+  color: #949494;
+  text-align:center;
+  margin-top:50px;
+  line-height:50px;
+}
+/* API 토큰 정렬 */
+.loginAPI_token {
+  text-align:center;
+  margin-top:0;
+}
+
+
+
+@keyframes show {
+  0% {
+    opacity:0.7;
+    transform:translateY(40px) scale(0.6);
+  }
+  100% {
+    opacity:1;
+    transform:translateY(0px) scale(1);    
+  }
+}
+@keyframes hide {
+  0% {
+    opacity:1;
+    transform:translateY(0px) scale(1) rotateX(0px);
+  }
+  99% {
+    opacity:0.9;
+    transform:translateY(100px) scale(0.9) rotateX(-90deg);
+  }
+  100% {
+    display:none;
+    opacity:0;
+  }
+}
+@keyframes shake {
+  0%, 50%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}

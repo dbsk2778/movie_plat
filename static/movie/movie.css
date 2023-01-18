@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+@import url('hcarouselttps://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
@@ -10,7 +10,6 @@ body {
     align-items: center;
     flex-wrap: wrap;
     background-color: black;
-
 }
 
 .sec {
@@ -61,8 +60,6 @@ body {
 }
 
 .carouselbox img {
-    /* min-width: 147px;
-    max-width: 147px; */
     border-radius: 5%;
     height: 300px;
     width: 300px;
@@ -125,8 +122,6 @@ body {
 }
 
 .carouselbox2 img {
-    /* min-width: 147px;
-    max-width: 147px; */
     border-radius: 5%;
     height: 300px;
     width: 300px;
@@ -144,7 +139,6 @@ body {
     border-radius: 10%;
 } 
 
-/*  */
 
 .carousel3 {
     height: 350px;
@@ -182,7 +176,6 @@ body {
     width: auto;
     overflow: hidden;
     white-space: nowrap;
-    /* word-break:break-all; */
     display: inline-block;
     text-align: center;
     padding: 10px !important;
@@ -191,8 +184,6 @@ body {
 }
 
 .carouselbox3 img {
-    /* min-width: 147px;
-    max-width: 147px; */
     border-radius: 5%;
     height: 300px;
     width: 300px;
@@ -210,7 +201,6 @@ body {
     border-radius: 10%;
 } 
 
-/*  */
 .carousel4 {
     height: 350px;
     width: 1450px;
@@ -247,7 +237,6 @@ body {
     width: auto;
     overflow: hidden;
     white-space: nowrap;
-    /* word-break:break-all; */
     display: inline-block;
     text-align: center;
     padding: 10px !important;
@@ -256,8 +245,6 @@ body {
 }
 
 .carouselbox4 img {
-    /* min-width: 147px;
-    max-width: 147px; */
     border-radius: 5%;
     height: 300px;
     width: 350px;
@@ -274,8 +261,6 @@ body {
     z-index: 5;
     border-radius: 10%;
 } 
-
-/*  */
 
 .carousel5 {
     height: 350px;
@@ -313,7 +298,6 @@ body {
     width: auto;
     overflow: hidden;
     white-space: nowrap;
-    /* word-break:break-all; */
     display: inline-block;
     text-align: center;
     padding: 10px !important;
@@ -322,8 +306,6 @@ body {
 }
 
 .carouselbox5 img {
-    /* min-width: 147px;
-    max-width: 147px; */
     border-radius: 5%;
     height: 300px;
     width: 300px;
@@ -341,14 +323,14 @@ body {
     border-radius: 10%;
 } 
 
- #modal {
+#modal {
     display: none;
     z-index: 1000;
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 15%;
-    left: 20%;
+    top: 13%;
+    left: 13%;
     color: white;
     font-family: 'Gothic A1', sans-serif;
 }
@@ -364,7 +346,7 @@ body {
     border-bottom-left-radius: 5%;
 }
 #modalright {
-    width:450px; 
+    width:660px; 
     height:600px;
     background-color: black;
     float: left; 
@@ -375,16 +357,10 @@ body {
 
 #modaltext {
     position: relative;
-    /* text-align: center; */
-    /* float: left;  */
-    /* width:600px; 
-    height:0px; */
-    /* background-color: black; */
-    /* border-top-right-radius: 5%; */
-    /* border-end-end-radius: 5%; */
-    /* padding-right: 50px; */
 }
 
-/* #modalyoutube {
-    position: relative;
-} */
+a.hover {
+    text-decoration: none;
+    color: white;
+}
+

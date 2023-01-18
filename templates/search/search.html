@@ -1,17 +1,20 @@
+<title>Movie Plat</title>
+
+{% extends '../common/base.html' %}
 {% load mathfilters %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block body %}
 <head>
     <div class="container mt-3"></div>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Search</title>
+        
+        <!-- 메뉴바  crossorigin="anonymous" -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z crossorigin="anonymous">
         <link rel="stylesheet" href="../../static/search/search.css">
-        <link rel="stylesheet" href="../../static/common/menu_style.css">
         <script src="../../static/search/search.js"></script>
-       
+
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/hiphop5782/score@0.0.2/score.js"></script>
         <script>
@@ -36,55 +39,35 @@
     </div>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <a href="{% url 'movie:movie' %}"><h1 id="title" style="margin-top:17px; font-size:xx-large; font-weight: bold;">Movie Plat</h1></a>
-            <a href="{% url 'movie:recommand' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Recommand</h1></a>
-            
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <div>
-                            <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
-                                <input type="text" id="search1" name="q" placeholder="Search for something..." style="font-size:small; margin-top: 25px;" required >
-                                <input type="submit" id="search2" value="Search" style="margin-top: 25px;">
-                            </form>
-                        </div>
-                    </li>
-                
-                    <li><a href="{% url 'user:logout' %}"  style="margin-top: 25px;">logout</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-    <div>
-        <section>
-            {% for item in items %}
-                <div id="sec" style="padding:0.5%">
-                    <div class="imgBoxDiv">
-                        <div class="imgDiv">
-                            <img src="{{item.image}}" width="100%" height="100%" onerror="this.src='https://images.christiandaily.co.kr/data/images/full/68175/image.jpg?w=600';"></a><br>  
-                        </div>
-                        <div class="imgDescDiv">
-                            <br>
-                            <!-- <p>&nbsp;&nbsp;<b>제목 : </b>{{ item.title|safe }}</p><br> -->
-                            <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubDate }}년</p> <br>
-                            <p>&nbsp;&nbsp;<b>감독</b> : {{ item.director }}</p><br>
-                            <p>&nbsp;&nbsp;<b>배우</b> : {{ item.actor }} </p><br>
-                            <!-- <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br>  -->
-                            <p id="naverlink"><a href="{{item.link}}"><b>더보기</b></a></p>
-                        </div>
-                    </div>
-                    <div class="titleBox">
-                        <!-- |truncatechars:15 -->
-                        <p>{{ item.title|safe }}</p><br>
-                        <div class="test-score1" data-max="5" data-rate="{{ item.userRating|div:2 }}"><b>&nbsp;{{ item.userRating }}&nbsp;&nbsp;&nbsp;</b></div><br>
-                        <!-- <hr> -->
-                    </div>
+    <section>
+        {% for item in items %}
+        <div id="sec">
+            <div class="imgBoxDiv">
+                <div class="imgDiv">
+                    <img src="{{item.image}}" width="100%" height="100%" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_b_ecoVCDDLOx1mRizf7lm5WseIbdsH9ew&usqp=CAU';"></a><br>  
                 </div>
-            {% endfor %}
-            
-        </section>
-    </div>
+                
+                <div class="imgDescDiv">
+                    <br>
+                    <!-- <p>&nbsp;&nbsp;<b>제목 : </b>{{ item.title|safe }}</p><br> -->
+                    <p>&nbsp;&nbsp;<b>제작연도</b> : {{ item.pubDate }}년</p> <br>
+                    <p>&nbsp;&nbsp;<b>감독</b> : {{ item.director }}</p><br>
+                    <p>&nbsp;&nbsp;<b>배우</b> : {{ item.actor }} </p><br>
+                    <!-- <p>&nbsp;&nbsp;<b>평점</b> : {{ item.userRating }}</p><br>  -->
+                    <p id="naverlink"><a href="{{item.link}}"><b>더보기</b></a></p>
+                </div>
+            </div>
+
+            <div class="titleBox">
+                <!-- |truncatechars:15 -->
+                <p>{{ item.title|safe }}</p>
+                <div class="test-score1" id="starBox" data-max="5" data-rate="{{ item.userRating|div:2 }}">
+                    <b>&nbsp;{{ item.userRating }}&nbsp;&nbsp;&nbsp;</b>
+                </div>
+                <br>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
 </body>
-</html>
+{% endblock %}
