@@ -1,63 +1,42 @@
+<title>Movie Plat</title>
+
+{% extends '../common/base.html' %}
 {% load bootstrap4 %}
 
-<!DOCTYPE html>
-<html lang="en">
+
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Movie Plat</title>
-
     <link rel="stylesheet" href="../../static/tvshow/tvshow.css">
-    <link rel="stylesheet" href="../../static/common/menu_style.css">
-    <link rel="stylesheet" href="../../static/search/search.css">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/dacf7dcd9c.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
-
-    <div class="wrapper">
-        <header>
-            <a href="{% url 'movie:movie' %}"><h1 id="title" style="margin-top:17px; font-size:xx-large; font-weight: bold;">Movie Plat</h1></a>
-            <a href="{% url 'movie:recommend' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Recommand</h1></a>
-            <a href="{% url 'movie:tvshow' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">TV SHOW</h1></a>
-            
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <div>
-                            <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
-                                <input type="text" id="search1" name="q" placeholder="Search for something..." style="font-size:small; margin-top: 25px;" required >
-                                <input type="submit" id="search2" value="Search" style="margin-top: 25px;">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        {% if user.is_authenticated %}
-                        {# 로그인한 경우 #}
-                            <li style="margin-top: 25px;"><a href="{% url 'user:profile' %}">Profile</a></li>                    
-                            <li style="margin-top: 25px;"><a href="{% url 'user:logout' %}">Logout</a></li>
-                        {% else %}
-                        {% endif %}
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
+    <!-- 하트icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body style="background-color:#232323"> 
 
+<body> 
+    <!-- 모달 -->
     <section class="modal" id="modal">
-        <div style="background-color: black; opacity: 0.5; position:fixed; top:0px; left:0px; width:100%; height:100%;"></div>
+        <div class="modal_background" style="background-color: black; opacity: 0.5; position:fixed; top:0px; left:0px; width:100%; height:100%; "></div>
+        
+        <span id="modaltitle"></span>
+        <span id="modalposter"></span>
+        
         <div class="modalBox" id="modal_box">
-            <div id = "modalimg"></div>
-            <div id = "modaltext"></div>
+            <div id="modalleft">
+                <div id="modalimg"></div>
+                <span class="modalicon"><i class="bx bxs-heart bx-md bx-tada-hover likethis" style=" color:#bd0000;"></i></span>
+            </div>
+            
+            <div id="modalright">
+                <div id="modaltext"></div>
+                <div id="modalyoutube"></div>
+            </div>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </section>
+
+
+
     
     <section class="sec" style="margin-top:1%">
         <div>
@@ -116,5 +95,27 @@
         <script src="../../static/tvshow/airingtodaytv.js"></script>
     </section>
 
+    <!-- footer -->
+    <footer style="color: rgb(66, 66, 66);">
+        <hr>
+        <p><span>Copyright 고다희,이유나,윤다빈 ⓒ 2023 All Rights Reserved.</span></p>
+    </footer>
+
+    <style>
+        hr {
+            height: 0.5px;
+            background-color: rgb(48, 48, 48);
+            border : 0;
+            margin-bottom: 10px;
+        }
+        footer{
+            margin-top: 30px;
+            text-align: center;
+            height: 25px;
+            position : relative;
+            transform : translateY(-100%);
+        }
+        </style>
+
 </body>
-</html>
+{% endblock %}

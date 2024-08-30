@@ -9,57 +9,75 @@ function movieId(param) {
 
 // Detail 띄우는 함수
 async function showDetail(param) {
-
   const api_key = "7f914cd60ea3f7a8f0358344658513a7";
 
-  // get (param = tmdb movie id에 맞는 정보 값 가져오기)
   var result = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
   "?api_key=" + api_key 
   + "&language=ko-KR");
 
   text = result.data;
 
-  var result2 = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
-  "/videos?api_key=" + api_key 
-  + "&language=ko-KR");
-
-  youtube = result2.data.results;
+   // 영화 제목 - 모달창 밖으로 숨김
+  //  document.getElementById("modaltitle").innerHTML = "<span style='opacity: 0;'>" + text['title'] + "</span>";
+   // 영화 포스트 - 모달창 밖으로 숨김
+  //  document.getElementById("modalposter").innerHTML = "<span style='opacity: 0;'>" + text['poster_path'] + "</span>";
+ 
   
-  // 이미지 하나 띄우기
-  document.getElementById("modalimg").innerHTML = "<div><br><br><br><img src='http://image.tmdb.org/t/p/w185/" + text['poster_path'] + "' style='width:350px; height:480px;'" + " /></div>";
+  // 디테일 페이지 - 영화 포스터
+  document.getElementById("modalimg").innerHTML = 
+  "<div><br><br><br><img src='http://image.tmdb.org/t/p/w185/" + text['poster_path'] + "' class='modal_img'" + " /></div>";
  
   // 정보 띄우기 
-  document.getElementById("modaltext").innerHTML = "<div><br><br><b style='font-size:xx-large'>" + text['title'] + 
-  '<div style="float:right;font-size:large;margin-top:10px;"><img src="../../static/img/star.png" style="width:20px;height:20px;" />&nbsp;' + text['vote_average'] + '</div>' +
-  '</b></div><div style="font-size:x-small;">개봉일자 : ' + text['release_date'] + 
-  '</div><br><br><b style="font-size:large">줄거리</b><div><br>' + 
-  text['overview'] + '</div><br>' ;
-    
+  document.getElementById("modaltext").innerHTML = "<div class='detail_title'><br>" + text['title'] + 
+  '<div class="vote"><img src="../../static/img/star.png" id="star"/>&nbsp;' + text['vote_average'] + '</div></div>' +
+  '<div class="release_date"><br>개봉일자 : ' + text['release_date'] + 
+  '</div><br><br><div class="story">줄거리</div><br><div class="overview">' + text['overview'] + '</div>' + 
+  '<br><br><div class="modal_youtube" onclick="showYoutube(' + param + ')">예고편 보러 가기</div>' ;
+
+  // modalyoutube창 로그 안남게 초기화
+  document.getElementById("modalyoutube").innerHTML = '<div></div>'
   
-  // detail modal창 띄울 때 modalbox 클릭하게 되면 detail 닫힘
+  // modal 디폴트
   document.getElementById('modal').style.display = 'block';
-
-  const close = modal.querySelector(".modalBox");
-
+  
+  // background를 누르면 modal이 꺼지는 함수 ('modal'.style.display = 'block' -> 'none')
+  const close = modal.querySelector(".modal_background");
   close.addEventListener("click", e => {
     document.getElementById('modal').style.display = 'none';
   });
-  
-  // youtube 있을 경우 youtube 띄우기
-  // youtube는 사용자가 조작 못함(youtube 자체 권한 때문인듯?)
-  if(!youtube[0]['key']) {
-    
-    document.getElementById("modalyoutube").innerHTML = "<div></div>";
 
-  } else if(!youtube[1]['key']) {
-      // console.log(youtube[i]['key']);
-      document.getElementById("modalyoutube").innerHTML = 
-      '<div><b style="font-size:large;color:white;">예고편</b><div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1" style="width:100px;"></iframe><div>';
-  
-  } else {
-    document.getElementById("modalyoutube").innerHTML = 
-    '<div><b style="font-size:large;color:white;">예고편</b></div><div><br><iframe src="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1"></iframe>' +
-    '<iframe src="https://www.youtube.com/embed/' + youtube[1]['key'] + '?controls=&autoplay=0&loop=1&mute=1&playlist=' + youtube[1]['key'] + '" frameborder="1"></iframe><div>';
-  };
-  
 };
+
+// 유튜브 영상 함수 
+// 로그가 계속 남아있어서 이 로그를 초기화해주는 코드를 작성해줘야 할듯
+async function showYoutube(param) {
+
+  const api_key = "7f914cd60ea3f7a8f0358344658513a7";
+
+  var result = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
+  "?api_key=" + api_key 
+  + "&language=ko-KR");
+
+  text = result.data;
+
+  console.log(text)
+
+  var result2 = await axios.get("https://api.themoviedb.org/3/movie/" + param + 
+  "/videos?api_key=" + api_key 
+  + "&language=ko-KR");
+  console.log(result2)
+  youtube = result2.data.results;
+
+  console.log(youtube)
+
+  // 다 유튜브 값이 있기는 있음 array(0)일 뿐,, 이건 어떻게 처리하는 거지?
+  if(youtube.length != 0) { 
+    document.getElementById("modalyoutube").innerHTML = 
+    '<br><br><div class="youtube"><a href="https://www.youtube.com/embed/' + youtube[0]['key'] + '?controls=&autoplay=1&loop=1&mute=1&playlist=' + youtube[0]['key'] + '" frameborder="1" class="youtube">클릭시 유튜브로 이동합니다.</a></div>';
+    
+  } else {
+    document.getElementById("modalyoutube").innerHTML = "<br><br><div class='no_youtube';>예고편 없음</div>";
+  };
+
+};
+

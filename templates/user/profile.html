@@ -5,6 +5,10 @@
 {% block body %}
 
 <!-- CSS가 없습니다 !! -->
+<head>
+    <script src="../../static/search/profile.js"></script>
+    <link rel="stylesheet" href="../../static/user/profile.css">
+</head>
 
 <body style="background-color: #161616;">
     <div class="profile_h2" style="margin-top: 120px; margin-left: 30px;">
@@ -19,10 +23,51 @@
         <br>
         <div style="margin-left: 60px;">
             <a href="{% url 'user:profile_delete' %}" style="color:#d14040f2;">
-                회원 탈퇴</a> <br>
+                회원 탈퇴</a>
+                <br>
         </div>
+        <br>
+        {% block content %}
+        <div class="like_box">
+            <h3><i class="bx bxs-heart likethis" style=" color:#bd0000;"></i>좋아요 한 영화목록</h3>
+
+            <ul class="ul_icon">
+                {% for Like in likes %}
+                <li class="box">
+                    <label class="poster"><img src='http://image.tmdb.org/t/p/w185/{{Like.poster_path}}'/></label>
+                    <span style="color: white;">{{Like.title}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endblock %}
     
         <div style="margin-top: 50px; margin-left:30px; padding-bottom: 10px;">
     </div>
+
+    <!-- footer -->
+    <footer style="color: rgb(66, 66, 66);">
+        <hr>
+        <p><span>Copyright 고다희,이유나,윤다빈 ⓒ 2023 All Rights Reserved.</span></p>
+    </footer>
+
+    <style>
+        hr {
+            height: 0.5px;
+            background-color: rgb(48, 48, 48);
+            border : 0;
+            margin-bottom: 10px;
+        }
+        footer{
+            margin-top: 30px;
+            text-align: center;
+            height: 25px;
+            position : relative;
+            transform : translateY(-100%);
+        }
+        </style>
+
+    <!-- 하트icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </body>
 {% endblock %}

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  # 소셜 계정을 관리하기 위한 것.
     # 사용할 외부기능을 추가한다.
     'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.naver',  
 
 ]
 
@@ -80,6 +81,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'team5.urls'

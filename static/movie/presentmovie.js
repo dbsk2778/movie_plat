@@ -31,7 +31,7 @@ function sliderScrollRight4() {
   };
 };
 
-timer = setInterval(sliderScrollRight4, 3000);
+timer = setInterval(sliderScrollRight4, 4000);
 
 async function showRecentlyMovieData() {
 

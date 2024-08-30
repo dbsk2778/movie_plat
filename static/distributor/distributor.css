@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #232323;
+    /* background-color: black; */
+}
+
+h2 {
+    color :white;
+    height : 30px;
+    text-align :center;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.sec {
+    text-align: center;
+}
+
+/* allmovies: netflix Css */
+.net_carousel {
+    height: 350px;
+    width: 1450px;
+    position: relative;
+}
+
+.net_carousel .net_switchLeft ,
+.net_carousel .net_switchRight {
+    margin-top:2%;
+    color:white;
+    font-weight: bold;
+    height: 300px;
+    width: 45px;
+    line-height: 350px;
+    font-size: 25px;
+    text-align: center;
+    background: #232323;
+    font-family: 'Gothic A1', sans-serif;
+    top:0;
+    z-index: 3;
+}
+
+.net_carousel .net_switchLeft {
+    position:absolute;
+    left: -20px;
+}
+
+.net_carousel .net_switchRight {
+    position:absolute;
+    right: -20px;
+}
+
+.net_carouselbox {
+    margin-top:5.5%;
+    height :350px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px !important;
+    display:flex;
+    align-items: center;
+}
+
+.net_carouselbox img {
+    border-radius: 5%;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.net_carouselbox img:hover {
+    transform: scale(1.2);
+    z-index: 5;
+    border-radius: 10%;
+} 
+
+/* allmovies: disneyPlus Css */
+.disney_carousel {
+    height: 350px;
+    width: 1450px;
+    position: relative;
+}
+
+.disney_carousel .disney_switchLeft ,
+.disney_carousel .disney_switchRight {
+    margin-top:2%;
+    color:white;
+    font-weight: bold;
+    height: 300px;
+    width: 45px;
+    line-height: 350px;
+    font-size: 25px;
+    text-align: center;
+    background: #232323;
+    font-family: 'Gothic A1', sans-serif;
+    top:0;
+    z-index: 3;
+}
+
+.disney_carousel .disney_switchLeft {
+    position:absolute;
+    left: -20px;
+}
+
+.disney_carousel .disney_switchRight {
+    position:absolute;
+    right: -20px;
+}
+
+.disney_carouselbox {
+    margin-top:5.5%;
+    height :350px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px !important;
+    display:flex;
+    align-items: center;
+}
+
+.disney_carouselbox img {
+    border-radius: 5%;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.disney_carouselbox img:hover {
+    transform: scale(1.2);
+    z-index: 5;
+    border-radius: 10%;
+} 
+
+/* allmovies: amazonPrime Css */
+.amazon_carousel {
+    height: 350px;
+    width: 1450px;
+    position: relative;
+}
+
+.amazon_carousel .amazon_switchLeft ,
+.amazon_carousel .amazon_switchRight {
+    margin-top:2%;
+    color:white;
+    font-weight: bold;
+    height: 300px;
+    width: 45px;
+    line-height: 350px;
+    font-size: 25px;
+    text-align: center;
+    background: #232323;
+    font-family: 'Gothic A1', sans-serif;
+    top:0;
+    z-index: 3;
+}
+
+.amazon_carousel .amazon_switchLeft {
+    position:absolute;
+    left: -20px;
+}
+
+.amazon_carousel .amazon_switchRight {
+    position:absolute;
+    right: -20px;
+}
+
+.amazon_carouselbox {
+    margin-top:5.5%;
+    height :350px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px !important;
+    display:flex;
+    align-items: center;
+}
+
+.amazon_carouselbox img {
+    border-radius: 5%;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.amazon_carouselbox img:hover {
+    transform: scale(1.2);
+    z-index: 5;
+    border-radius: 10%;
+} 
+
+
+
+/* allmovies: appleTV Css */
+.apple_carousel {
+    height: 350px;
+    width: 1450px;
+    position: relative;
+}
+
+.apple_carousel .apple_switchLeft ,
+.apple_carousel .apple_switchRight {
+    color:white;
+    margin-top:2%;
+    font-weight: bold;
+    height: 300px;
+    width: 45px;
+    line-height: 350px;
+    font-size: 25px;
+    text-align: center;
+    background: #232323;
+    font-family: 'Gothic A1', sans-serif;
+    top:0;
+    z-index: 3;
+}
+
+.apple_carousel .apple_switchLeft {
+    position:absolute;
+    left: -20px;
+}
+
+.apple_carousel .apple_switchRight {
+    position:absolute;
+    right: -20px;
+}
+
+.apple_carouselbox {
+    margin-top:5.5%;
+    height :350px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px !important;
+    display:flex;
+    align-items: center;
+}
+
+.apple_carouselbox img {
+    border-radius: 5%;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.apple_carouselbox img:hover {
+    transform: scale(1.2);
+    z-index: 5;
+    border-radius: 10%;
+} 

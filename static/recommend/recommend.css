@@ -19,7 +19,8 @@ section {
 .title {
     color:white;
     font-size: xx-large;
-    margin:2%;
+    margin-left:2%;
+    margin-top:2%;
     font-family: 'Gothic A1', sans-serif;
     font-weight: bold;
 }
@@ -54,13 +55,16 @@ section {
     font-family: 'Gothic A1', sans-serif;
 }
 
-#modalimg {
-    position: relative;
-    text-align: center;
+#modalleft{
     float: left; 
     width:450px; 
     height:600px;
     background-color: black;
+}
+
+#modalimg {
+    position: relative;
+    text-align: center;
     border-top-left-radius: 5%;
     border-bottom-left-radius: 5%;
 }
@@ -79,6 +83,22 @@ section {
     position: relative;
 }
 
+#modalyoutube {
+    position: relative;
+}
+
+
+/* 좋아요버튼 */
+.modalicon{
+    position: relative;
+    width:40px; 
+    height:40px;
+    top:20px;
+    left: 200px;
+    float: none;
+}
+
+
 a.hover {
     text-decoration: none;
     color: white;
@@ -95,4 +115,61 @@ a.hover {
     float:left;
     margin:1%;
     margin-left:2%;
+}
+
+/* modalimg css */
+
+.modal_img {
+    width:350px;
+    height:480px;
+}
+
+/* modaltext */
+
+.detail_title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.vote {
+    float:right;
+    font-size:large;
+    margin-top:8px;
+}
+
+#star {
+    width:20px;
+    height:20px;
+}
+
+.release_date {
+    font-size:small;
+}
+
+.story {
+    font-size:large;
+    font-weight: bold;
+}
+
+.overview {
+    font-size: medium;
+}
+
+.modal_youtube {
+    font-size: large;
+    font-weight: bold;
+    color:white;
+}
+
+.no_youtube {
+    font-size: large;
+    font-weight: bold;
+    color:red;
+}
+
+.youtube {
+    font-size: large;
+    font-weight: bold;
+    color:blue;
+    text-decoration : underline;
 }

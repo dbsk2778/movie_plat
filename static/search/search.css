@@ -89,3 +89,7 @@ section{
 #search_div2{
     line-height: 25px;
 }
+
+#pagenavi {
+    font-size: larger;
+}

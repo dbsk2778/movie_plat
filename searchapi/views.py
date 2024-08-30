@@ -4,7 +4,6 @@ import urllib.request
 from django.shortcuts import render
 # from sqlalchemy import create_engine
 
-
 def search(request):
     if request.method == 'GET':
 

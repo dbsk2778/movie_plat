@@ -35,21 +35,24 @@
 </head>
 
 <section>
-    <!-- 버튼 여러개 두고, 경로 지정 -->
-    
-    <form name="form1" class="recommend_search">
-        <!-- <div class="form_text">좋아하는 영화를 검색해보세요!</div> -->
-        <input type="text" name="recom" style="text-align: center;" class="search_box" placeholder="영화 제목을 입력해주세요." required>
+<!-- 버튼 여러개 두고, action 따로 지정 -->
+<div id="reco">
+    <form class="recommend_search">
+        <div class="form_text">Movie Recommendation</div>
         <div>
-            <button type="submit" formaction="{% url 'movie:content_recommend' %}"
-                formmethod="get" class="search_btn">콘텐츠 기반 추천</button>
-            <button type="submit" formaction="{% url 'movie:tmdb_recommend' %}"
-                formmethod="get" class="search_btn">TMDB 추천</button>
-            <button type="submit" formaction="{% url 'movie:meta_recommend' %}"
-                formmethod="get" class="search_btn">감독/배우 기반 추천</button>
-        </div>   
+            <input type="text" name="recom" style="text-align: center;" class="search_box" placeholder="영화 제목을 입력해주세요." required>
+            <div>
+                <button type="submit" formaction="{% url 'movie:content_recommend' %}"
+                    formmethod="get" class="search_btn" id="btn1">콘텐츠 기반 추천</button>
+                <button type="submit" formaction="{% url 'movie:tmdb_recommend' %}"
+                    formmethod="get" class="search_btn" id="btn2">TMDB 추천</button>
+                <button type="submit" formaction="{% url 'movie:meta_recommend' %}"
+                    formmethod="get" class="search_btn" id="btn3">감독/배우 기반 추천</button>
+            </div>   
+        </div>
     </form>
-
+    <!-- <div class="reco_img"><img src="../../static/img/networking.png" alt="" style="width:200px; height:200px;"/></div> -->
+</div>
 </section>
 
 <body style="background-color:#232323">
@@ -67,7 +70,7 @@
 
     <section>
         <div class="container">
-            <div class="sub_text" style="text-align: center;">선택한 장르의 관련 영화들을 모두 불러옵니다.</div>
+            <div class="sub_text" style="text-align: center;"><b style="font-size: 20px">{{ user.username }}님</b>이 선택한 장르의 관련 영화들을 모두 불러옵니다.</div>
         </div>
 
         <div style="text-align: center;">

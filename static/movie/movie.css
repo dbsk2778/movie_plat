@@ -1,4 +1,4 @@
-@import url('hcarouselttps://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
@@ -10,6 +10,12 @@ body {
     align-items: center;
     flex-wrap: wrap;
     background-color: black;
+}
+
+h2 {
+    color :white;
+    height : 30px;
+    text-align :center;
 }
 
 .sec {
@@ -75,7 +81,6 @@ body {
     transform: scale(1.2);
     z-index: 5;
     border-radius: 10%;
-
 } 
 
 .carousel2 {
@@ -262,6 +267,7 @@ body {
     border-radius: 10%;
 } 
 
+
 .carousel5 {
     height: 350px;
     width: 1450px;
@@ -308,7 +314,7 @@ body {
 .carouselbox5 img {
     border-radius: 5%;
     height: 300px;
-    width: 300px;
+    width: 350px;
     background-size: cover;
     background-color: lightgreen;
     margin: 5px 10px;
@@ -323,6 +329,8 @@ body {
     border-radius: 10%;
 } 
 
+
+/* detail modal창 */
 #modal {
     display: none;
     z-index: 1000;
@@ -335,16 +343,22 @@ body {
     font-family: 'Gothic A1', sans-serif;
 }
 
-#modalimg {
-    position: relative;
-    text-align: center;
+#modalleft{
     float: left; 
     width:450px; 
     height:600px;
     background-color: black;
+}
+
+/* 포스터 */
+#modalimg {
+    padding-top: 50px;
+    position: relative;
+    text-align: center;
     border-top-left-radius: 5%;
     border-bottom-left-radius: 5%;
 }
+
 #modalright {
     width:660px; 
     height:600px;
@@ -355,8 +369,25 @@ body {
     border-end-end-radius: 5%;
 }
 
+
 #modaltext {
     position: relative;
+}
+
+#modalyoutube {
+    position: relative;
+}
+
+
+
+/* 좋아요버튼 */
+.modalicon{
+    position: relative;
+    width:40px; 
+    height:40px;
+    top:20px;
+    left: 200px;
+    float: none;
 }
 
 a.hover {
@@ -364,3 +395,82 @@ a.hover {
     color: white;
 }
 
+/* detail modalimg css */
+
+.modal_img {
+    width:350px;
+    height:480px;
+}
+
+/* detail modaltext css */
+.detail_title {
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.vote {
+    float:right;
+    font-size:large;
+    font-weight: bold;
+    margin-top:10px;
+}
+
+#star {
+    width:20px;
+    height:20px;
+}
+
+.release_date {
+    font-size:small;
+}
+
+.story {
+    font-size:large;
+    font-weight: bold;
+}
+
+.overview {
+    font-size: medium;
+}
+
+.staytime {
+    font-size: large;
+    font-weight: 900;
+    color:red;
+}
+
+.modal_youtube {
+    font-size: large;
+    font-weight: bold;
+    color:white;
+}
+
+.no_youtube {
+    font-size: large;
+    font-weight: bold;
+    color:red;
+}
+
+.youtube {
+    font-size: large;
+    font-weight: bold;
+    color:blue;
+    text-decoration : underline;
+}
+
+.highstay img:hover {
+    transform: scale(1.2);
+    z-index: 5;
+    border-radius: 10%;
+    opacity:0.5;
+}
+
+img{min-height: 100%; max-width: 100%; }
+.imgHoverEvent{width: 350px; height: 480px; position: relative; overflow: hidden; display: inline-block;}
+.imgHoverEvent .imgBox{width: 350px; height: 480px; text-align: center; background:url(http://gahyun.wooga.kr/portfolio/triple/resources/img/city00.jpg) no-repeat 50% 50%; background-size: auto 100%;}
+.imgHoverEvent .hoverBox{position: absolute; top:0; left: 0; width: 350px; height: 480px;}
+.hoverBox p.p1{text-align:center; font-size:18px;}
+.hoverBox p.p2{margin-top: 40px;}
+.event1 .hoverBox{background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(255,255,255,0.5) 0%); transform: translateY(100%); transition: 0.5s;}
+.event1:hover .hoverBox{transform: translateY(0);}

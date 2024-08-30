@@ -35,9 +35,9 @@ function sliderScrollRight2() {
 
 function setIntervalmovie() {
   if(scrollAmount <= sliders2.scrollWidth - sliders2.clientWidth){
-    timer = setInterval(sliderScrollRight2, 3000);
+    timer = setInterval(sliderScrollRight2, 4000);
   } else {
-    timer = setInterval(sliderScrollLeft2, 3000);
+    timer = setInterval(sliderScrollLeft2, 4000);
   };
 };
 

@@ -44,6 +44,7 @@ header #title{
 header #RTM{
     font-size:medium;
     font-weight: bold;
+
 }
 
 /* 메뉴바 오른쪽  */
@@ -89,7 +90,14 @@ h1{
     margin-right: 25px;
     padding-top: 20px;
     line-height: 20px;
-    background-color: black;
     font-family: 'Gothic A1', sans-serif;
+}
 
+
+input[type="button" i] {
+    margin-top : 13px;
+    margin-left: 575px;
+    font-size: 20;
+    line-height: 270%;
+    
 }

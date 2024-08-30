@@ -82,34 +82,65 @@
                 </script>
             </div>
 		</div>
-		<footer class="my-3 text-center text-small">
-
-
-        <!-- 카카오톡 -->
-        {% load socialaccount %}
+        <!-- 네아로 구역 -->
         <div>
-            {% load socialaccount %}
-            <a id="kakao-login-btn" href="{% provider_login_url 'kakao' method='oauth2' %}">
-                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FsEhgg%2FbtrQOnSmo5Z%2FtSPIqHRKyqirvUrHz90joK%2Fimg.png" style="height: 40px;">
-            </a>
-        </div>
-        </footer>
-	</div>
-    <!-- <input type="hidden" value="{% provider_login_url 'kakao' method='oauth2' %}" id="loginUrl">
-    <script>
-        function loginPopup() {
-            let loginUrl = document.getElementById('loginUrl').value
-            location.href = loginUrl;
-            // let popupWindow = window.open(loginUrl, '_blank', 'width=300, height=150, left=600, top=270');
+            <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+            
+            <!-- 네이버 로그인 버튼 노출 영역 -->
+            <div id="naver_id_login"></div>
+            
+            <!-- //네이버 로그인 버튼 노출 영역 -->
+            <script type="text/javascript">
+                var naver_id_login = new naver_id_login("B320__fXuaFtkS_NEGpv", "http://127.0.0.1:8000/movie/movie");
+                var state = naver_id_login.getUniqState();
+                naver_id_login.setButton("white", 2,40);
+                naver_id_login.setDomain("http://127.0.0.1:8000/user/signup");
+                naver_id_login.setState(state);
+                // naver_id_login.setPopup();
+                naver_id_login.init_naver_id_login();
+                var naver_id_login = new naver_id_login("B320__fXuaFtkS_NEGpv", "http://127.0.0.1:8000/movie/movie");
 
-            // let interval = setInterval(function() {
-            //     if (popupWindow.closed) {
-            //         clearInterval(interval)
-            //         location.href = '/home/'
-            //     }
-            // }, 100)
-        }
-    </script> -->
+                // 접근 토큰 값 출력
+                // url 값 
+                // #access_token=AAAAOK0pPiRIOIyXqKGJfRcWnAw6nGfOdvML1rFIadDu1HkuMOGUM7zing9uoPzKTOouylitaZhSZZBgMGNlzcjcsbo&state=2782c194-2d64-435f-8926-81df4c8c54f4&token_type=bearer&expires_in=3600
+                alert(naver_id_login.oauthParams.access_token);
+                console.log(naver_id_login.oauthParams.access_token);
+                // 일단 토큰을 ajax로 보내는 건 불가능한듯? 
+
+                // 네이버 사용자 프로필 조회
+                naver_id_login.get_naver_userprofile("naverSignInCallback()");
+            
+                // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+                function naverSignInCallback() {
+                  alert(naver_id_login.getProfileData('email'));
+                  alert(naver_id_login.getProfileData('nickname'));
+                  alert(naver_id_login.getProfileData('age'));
+                }
+            </script>
+            
+            <script type="text/javascript">
+                var naver_id_login = new naver_id_login("B320__fXuaFtkS_NEGpv", "http://127.0.0.1:8000/movie/movie");
+
+                // 접근 토큰 값 출력
+                // url 값 
+                // #access_token=AAAAOK0pPiRIOIyXqKGJfRcWnAw6nGfOdvML1rFIadDu1HkuMOGUM7zing9uoPzKTOouylitaZhSZZBgMGNlzcjcsbo&state=2782c194-2d64-435f-8926-81df4c8c54f4&token_type=bearer&expires_in=3600
+                alert(naver_id_login.oauthParams.access_token);
+
+                // 일단 토큰을 ajax로 보내는 건 불가능한듯? 
+
+                // 네이버 사용자 프로필 조회
+                naver_id_login.get_naver_userprofile("naverSignInCallback()");
+
+                // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+                function naverSignInCallback() {
+                  alert(naver_id_login.getProfileData('email'));
+                  alert(naver_id_login.getProfileData('nickname'));
+                  alert(naver_id_login.getProfileData('age'));
+                }
+            </script>
+        </div>
+	</div>
 </body>
 {% endblock body %}
 </html>

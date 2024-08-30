@@ -32,7 +32,7 @@ function sliderScrollRight() {
   };
 };
 
-timer = setInterval(sliderScrollRight, 3000);
+timer = setInterval(sliderScrollRight, 4000);
 
 async function showHighestMovieData() {
 

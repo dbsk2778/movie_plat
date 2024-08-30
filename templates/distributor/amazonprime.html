@@ -1,0 +1,77 @@
+<title>Movie Plat</title>
+
+{% extends '../common/base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+<head>
+    <div class="container mt-3"></div>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- 메뉴바  crossorigin="anonymous" -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z crossorigin="anonymous">
+        <link rel="stylesheet" href="../../static/search/search.css">
+        <script src="../../static/search/search.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    </div>
+</head>
+<body>
+{% block content %}
+<section>
+    <div>
+        <div style="margin:2%;">
+            <a href="https://www.primevideo.com/?ref_=dvm_pds_amz_kr_dc_s_g_mkw_sVWeNbMpV-dc_pcrid_292961275897&mrntrk=slid__pgrid_40407280927_pgeo_1009856_x__adext__ptid_kwd-269161528002">
+                <img src="../../static/img/amazon-prime-logo.png" style="width:55px;height:50px;float:left">
+            </a>
+            <h2 style="float:left;margin-top:1%;color:skyblue">&nbsp;&nbsp;&nbsp;다양한 콘텐츠를 갖춘 Amazon Prime Video와 함께 하세요.</h2>
+            <h4 style="float:left;margin-top:1.2%;margin-left:47%;color:white;">로고 클릭 시 사이트로 이동합니다.</h4>
+        </div>
+    </div>
+</section>
+<br>
+<section style="margin-top:2%;">
+    {% for blog in posts %}
+    <div id="sec">
+        <div class="imgBoxDiv">
+            <div class="imgDiv">
+                <img src="http://image.tmdb.org{{blog.poster_path}}" width="100%" height="100%"></a>  
+            </div>
+            <div class="imgDescDiv">
+                <br>
+                <p>&nbsp;&nbsp;<b>제목 : </b>{{ blog.title|safe }}</p><br>
+                <p>&nbsp;&nbsp;<b>개봉 일자 : </b> : {{ blog.release_date }}</p> <br>
+                <p>&nbsp;&nbsp;<b>감독 : </b> {{ blog.overview }}</p><br>
+            </div>
+        </div>
+        <div class="titleBox">
+            <!-- |truncatechars:15 -->
+            <p>{{ blog.title|safe }}</p>
+            <br>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<section style="margin-top:93%;margin-bottom: 2%;">
+    <div style="text-align: center;font-size:large;font-weight: bold;">
+    {% if posts.has_previous %}
+        <a href="?page=1"><img src="../../static/img/left-all.png" style="width:13px;height:13px;"></a>
+        <a href="?page={{posts.previous_page_number}}"><img src="../../static/img/left.png" style="width:13px;height:13px;"></a>
+           
+    {% endif %}
+        <span class="current">
+            &nbsp;&nbsp;{{ posts.number }} 
+        </span>
+        <span>&nbsp;/&nbsp;</span>
+        <span>{{posts.paginator.num_pages}} 페이지&nbsp;&nbsp;</span>
+    {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}"><img src="../../static/img/right.png" style="width:13px;height:13px;"></a>
+        <a href="?page={{posts.paginator.num_pages}}"><img src="../../static/img/right-all.png" style="width:13px;height:13px;"></a>
+    {% endif %}
+</section>
+{% endblock %}
+</body>
+{% endblock %}

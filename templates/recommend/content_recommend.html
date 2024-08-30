@@ -6,19 +6,31 @@
 <!-- content_recommend css 이름 변경 -->
 <link rel="stylesheet" href="../../static/recommend/recommend.css">
 <body>
-    {% block content %}
+    {% block content %}                                                                                 
+    <!-- 모달 -->
     <section class="modal" id="modal">
-        <div style="background-color: black; opacity: 0.5; position:fixed; top:0px; left:0px; width:100%; height:100%;"></div>
+        <div class="modal_background" style="background-color: black; opacity: 0.5; position:fixed; top:0px; left:0px; width:100%; height:100%; "></div>
+        
         <div class="modalBox" id="modal_box">
-            <div id = "modalimg"></div>
+            <div id="modalleft">
+                <div id="modalimg"></div>
+                <span class="modalicon"><i class="bx bxs-heart bx-md bx-tada-hover likethis" style=" color:#bd0000;"></i></span>
+            </div>
+            
             <div id="modalright">
-                <div id = "modaltext"></div>
-                <div id = "modalyoutube"></div>
+                <div id="modaltext"></div>
+                <div id="modalyoutube"></div>
             </div>
         </div>
+
+        <!-- 하트icon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- ajax -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </section>
     
-    <div class="title">콘텐츠 기반 영화 추천</div>
+
+    <div class="title">장르 기반 영화 추천</div>
     <section>
         {% for item in items %}
         <div class="total">

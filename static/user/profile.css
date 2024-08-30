@@ -1,0 +1,71 @@
+.like_box {
+    margin-top: 30px;
+}
+
+h3 {
+    text-align: center;
+    color:white;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul.ul_icon {
+    text-align: center;
+}
+  
+li {
+    display: inline-block;
+    text-align: center;
+}
+
+label {
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+}
+
+label:before {
+    background-color: rgb(12, 12, 12);
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+  
+label img {
+    border-radius: 20px;
+    height: 280px;
+    width: 200px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+}
+
+.box {
+    overflow: hidden;   
+    border-radius: 20px;
+
+}
+
+.box img{
+    object-fit:cover;     
+    transform:scale(1.0);        
+    transition: transform .5s; 
+}
+
+.box img:hover{ 
+    border-radius: 20px;
+    transform:scale(1.2);
+    transition: transform .5s;
+  }

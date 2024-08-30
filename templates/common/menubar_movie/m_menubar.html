@@ -3,41 +3,18 @@
 <div class="wrapper">
     <header>
         <a href="{% url 'movie:movie' %}"><h1 id="title" style="margin-top:17px; font-size:xx-large; font-weight: bold;">Movie Plat</h1></a>
-        <a  href="{% url 'movie:movie' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Movie</main></h1></a>
+        <a href="{% url 'movie:movie' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Movie</main></h1></a>
         <a href="{% url 'movie:tvshow' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">TV Show</h1></a>
-<<<<<<< HEAD
         <a href="{% url 'movie:recommend' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Recommend</h1></a>
-
+        <a href="{% url 'movie:allmovies' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">On Streaming</h1></a>
         <nav>
+            <input type="button" onclick="darksun()" value="🌞" style="border: none; background: transparent;">
             <ul class="menu">
                 <li>
                     <div>
                         <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
-                            <!--  -->
                             <input type="text" id="search1" name="q" placeholder="검색어를 입력하세요" style="font-size:small; margin-bottom: 25px; text-align: center;" required >
-                            <button type="submit" id="search2" value="Search" style="width: 30px;"><img src="../../static/img/reading_glasses.png" style="width: 30px;"></button>
-=======
-        <a href="{% url 'movie:recommend' %}"><h1 style="margin-top:30px; font-size:medium; font-weight: bold;">Recommand</h1></a>
-
-        <nav>
-            <ul class="menu">
-
-                <li>
-                    <div>
-                        <form action="{% url 'movie:recommend' %}" method="GET" name="recommendform">
-                            <!-- style="font-size:small; margin-top: 25px;" -->
-                            <input type="text" id="recommend1" name="recom" placeholder="추천 영화" style="margin-top:25px; margin-right:400px" required >
-                            <!-- <button type="submit" id="recommend2" style="width: 30px;"><img src="../../static/img/reading_glasses.png" style="width: 30px;"></button> -->
-                        </form>
-                    </div>
-               
-                    <div>
-                        <form action="{% url 'searchapi:search_api' %}" method="GET" name="searchform" id="sf">
-                            <!--  -->
-                            <input type="text" id="search1" name="q" placeholder="검색어를 입력하세요" style="font-size:small; margin-bottom: 25px; text-align: center;" required >
-                            <!-- <button type="submit" id="search2" value="Search" style="width: 30px;"><img src="../../static/img/reading_glasses.png" style="width: 30px;"></button> -->
->>>>>>> e6440649888e20617df7fe60bac43092bd34082f
-                        </form>
+                            <button type="submit" id="search2" value="Search" style="width: 30px;border: none; background: transparent;"><img src="../../static/img/reading_glasses.png" style="width: 30px;"></button>
                     </div>
                 </li>
                 <li>
@@ -49,5 +26,86 @@
                 </li>
             </ul>
         </nav>
+    <!-- 다크모드 버튼 -->
+    <script>
+    // night
+        function darksun() {
+            if (this.value === '🌛'){
+            document.querySelector('body').style.backgroundColor = '#232323';
+            document.querySelector('body').style.color='white';
+            document.querySelector('header').style.backgroundColor='black';
+            document.querySelector('header').style.color='white';
+            
+            /*var list1 = document.querySelectorAll('button');
+                var i = 0;
+                while(i < list1.length){
+                    list1[i].style.backgroundColor='white'
+                    list1[i].style.color='black';
+                    i++;
+                }*/
+
+            var list2 = document.querySelectorAll('a');
+                var i = 0;
+                while(i < list2.length){
+                    list2[i].style.color = 'white';
+                    list2[i].style.backgroundColor='black';
+                    i++;
+                }
+            var list3 = document.querySelectorAll('h2');
+                var i = 0;
+                while(i < list3.length){
+                    list3[i].style.color = 'white';
+                    i++;
+                }
+            var list4 = document.querySelectorAll('h1');
+                var i = 0;
+                while(i < list4.length){
+                    list4[i].style.color = 'white';
+                    list4[i].style.backgroundColor='black';
+                    i++;
+                }
+            this.value='🌞';
+        } 
+        /* day */
+        else {
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.color='black';
+            document.querySelector('header').style.backgroundColor='white';
+            document.querySelector('header').style.color='black';
+            
+        
+        /*var list1 = document.querySelectorAll('button');
+                var i = 0;
+                while(i < list1.length){
+                    list1[i].style.backgroundColor='white';
+                    list1[i].style.color='black';
+                    i++;
+                }*/
+                
+            var list2 = document.querySelectorAll('a');
+                var i = 0;
+                while(i < list2.length){
+                    list2[i].style.color = 'black';
+                    list2[i].style.backgroundColor='white';
+                    i++;
+                }
+
+            var list3 = document.querySelectorAll('h2');
+                var i = 0;
+                while(i < list3.length){
+                    list3[i].style.color = 'black';
+                    i++;
+                }
+            var list4 = document.querySelectorAll('h1');
+                var i = 0;
+                while(i < list4.length){
+                    list4[i].style.color = 'black';
+                    list4[i].style.backgroundColor='white';
+                    i++;
+                }
+            this.value='🌛';
+
+        } }
+    </script>
     </header>
 </div>

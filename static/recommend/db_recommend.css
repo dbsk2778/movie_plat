@@ -1,5 +1,4 @@
 @import url('hcarouselttps://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&family=Roboto:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Trispace&family=Zen+Antique&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 body{
@@ -9,29 +8,77 @@ body{
     margin: 0; 
 }
 
+/* 메뉴바랑 겹치는 CSS */
+#RTM{
+    margin-top: 30px;
+}
+
+#title{
+    margin-top: 10px;
+}
+
+#search2{
+    margin-left: 50px;
+}
+
+#profile{
+    padding-left: 0;
+}
+
+
+
+/* 본문 */
+#reco {
+    margin-top:0.1%;
+    background-color: black;
+    height:300px;
+    text-align: center;
+
+}
+
+.reco_img {
+
+    margin-top:30px;
+    width:200px;
+    height:300px;
+    float:left;
+}
+
 .form_text {
     color:white;
     font-size: xx-large;
-    font-family: 'Gothic A1', sans-serif;
-}
-.recommend_search {
-    text-align: center;
-    height:200px;
-    margin:1%;
-    background-color:black;
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
+    margin-top: 0px;
+    
 }
 
+.recommend_search {
+    margin-left:280px;
+    text-align: center;
+    height:300px;
+    width:900px;
+    float:left;
+}
+
+
+
 .search_box {
-    margin-top:3%;
+    margin-top:1%;
     height:35px;
     width:605px;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight:400;
 }
 
 .search_btn {
     margin-top:0.5%;
     width:200px;
     height:40px;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
 }
+
 #search_text {
     color: white;
 }
@@ -81,3 +128,16 @@ label img {
 .poster_title {
     font-size: small;
 }
+
+#btn1 {
+    background-color:gray;
+}
+
+#btn2 {
+    background-color:darkgray;
+}
+
+#btn3 {
+    background-color:lightgray;
+}
+

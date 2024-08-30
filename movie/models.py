@@ -26,16 +26,18 @@ class genre_recommand4(models.Model):
     movie_id = models.IntegerField()
     genre_id = models.IntegerField()
     
-
 class Usergenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
  
-
 class Like(models.Model):
-    username = models.CharField(max_length=50)
-    title = models.CharField(max_length=10)
-    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    username = models.IntegerField()
+    title = models.CharField(max_length=100)
+    poster_path = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.title
+class StayTime(models.Model):
+    title = models.CharField(max_length=100)
+    second = models.IntegerField()
+
+class NaverLogin(models.Model):
+    email = models.CharField(max_length=100)

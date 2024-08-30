@@ -1,0 +1,109 @@
+<title>Movie Plat</title>
+
+{% extends '../common/base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+<head>
+    <div class="container mt-3"></div>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- 메뉴바  crossorigin="anonymous" -->
+        <link rel="stylesheet" href="../../static/distributor/distributor.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    </div>
+</head>
+<body> 
+    <!-- 넷플릭스 인기 Top 20 불러오기 -->
+    <section class="sec" style="margin-top:5%;">
+        <div>
+            <div style="margin:2%;">
+                <a href="{% url 'movie:netflix' %}"><img src="../../static/img/netflix_logo.png" style="width:55px;height:50px;float:left"></a>
+                <h2 style="float:left;margin-top:0.8%;">&nbsp;&nbsp;&nbsp;Now Streaming</h2>
+                <!-- <a href="{% url 'movie:netflix' %}" style="color: red;">+</a> -->
+            </div>
+        </div>
+        <div class="net_carousel">
+            <div class="net_carouselbox">
+                {% for netflix_item in netfilx_items %}
+                <img class="img-{{netflix_item.netflix_count}} slider-img" src="http://image.tmdb.org{{netflix_item.netflix_poster_path}}"></a>  
+                <input type="hidden" id="netflix_title" name="title" value="{{ netflix_item.netflix_title }}">
+                {% endfor %}
+            </div>
+            <a class="net_switchLeft sliderButton" onclick="net_sliderScrollLeft()"><</a>
+            <a class="net_switchRight sliderButton" onclick="net_sliderScrollRight()">></a>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.js"></script>
+        <script src="../../static/distributor/netflix_top20.js"></script>
+    </section>
+
+    <!-- 디즈니 플러스 인기 Top 20 불러오기 -->
+    <section class="sec">
+        <div>
+            <div style="margin:2%;">
+                <a href="{% url 'movie:disneyplus' %}"><img src="../../static/img/disney_logo.png" style="width:55px;height:50px;float:left"></a>
+                <h2 style="float:left;margin-top:0.8%;">&nbsp;&nbsp;&nbsp;Now Streaming</h2>
+            </div>
+        </div>
+        <div class="disney_carousel">
+            <div class="disney_carouselbox">
+                {% for disney_item in disney_items %}
+                <img class="img-{{disney_item.disney_count}} slider-img" src="http://image.tmdb.org{{disney_item.disney_poster_path}}"></a>  
+                {% endfor %}
+            </div>
+            <a class="disney_switchLeft sliderButton" onclick="disney_sliderScrollLeft()"><</a>
+            <a class="disney_switchRight sliderButton" onclick="disney_sliderScrollRight()">></a>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.js"></script>
+        <script src="../../static/distributor/disney_top20.js"></script>
+    </section>
+    
+
+    <!-- 아마존 프라임 인기 Top 20 불러오기 -->
+    <section class="sec">
+        <div>
+            <div style="margin:2%;">
+                <a href="{% url 'movie:amazonprime' %}"><img src="../../static/img/amazon-prime-logo.png" style="width:55px;height:50px;float:left"></a>
+                <h2 style="float:left;margin-top:0.8%;">&nbsp;&nbsp;&nbsp;Now Streaming</h2>
+            </div>
+        </div>
+            <div class="amazon_carousel">
+            <div class="amazon_carouselbox">
+                {% for amazon_item in amazon_items %}
+                <img class="img-{{amazon_item.amazon_count}} slider-img" src="http://image.tmdb.org{{amazon_item.amazon_poster_path}}"></a>  
+                {% endfor %}
+            </div>
+            <a class="amazon_switchLeft sliderButton" onclick="amazon_sliderScrollLeft()"><</a>
+            <a class="amazon_switchRight sliderButton" onclick="amazon_sliderScrollRight()">></a>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.js"></script>
+        <script src="../../static/distributor/amazon_top20.js"></script>
+    </section>
+
+
+    <!--Apple TV 인기 Top 20 불러오기 -->
+    <section class="sec">
+        <div>
+            <div style="margin:2%;">
+                <a href="{% url 'movie:appletv' %}"><img src="../../static/img/apple_tv_logo.png" style="width:55px;height:50px;float:left"></a>
+                <h2 style="float:left;margin-top:0.8%;">&nbsp;&nbsp;&nbsp;Now Streaming</h2>
+            </div>
+            
+        </div>
+        <div class="apple_carousel">
+            <div class="apple_carouselbox">
+                {% for apple_item in apple_items %}
+                <img class="img-{{apple_item.apple_count}} slider-img" src="http://image.tmdb.org{{apple_item.apple_poster_path}}"></a>  
+                {% endfor %}
+            </div>
+            <a class="apple_switchLeft sliderButton" onclick="apple_sliderScrollLeft()"><</a>
+            <a class="apple_switchRight sliderButton" onclick="apple_sliderScrollRight()">></a>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.js"></script>
+        <script src="../../static/distributor/apple_top20.js"></script>
+    </section>
+    
+</body>
+{% endblock %}

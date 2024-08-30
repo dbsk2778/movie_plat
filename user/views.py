@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserChangeForm, CheckPasswordForm
 from .decorators import login_message_required
 from .forms import CustomUserCreationForm
+from movie.models import Like
 
 
 # 로그인
@@ -32,9 +33,14 @@ def logout_view(request):
 # 프로필 보기
 @login_message_required
 def profile_view(request):
+    
     if request.method == 'GET':
+        likes = Like.objects.filter(username=request.user.id)
+        context = {
+            'likes': likes
+        }
 
-        return render(request, 'user/profile.html')
+    return render(request, 'user/profile.html', context)
 
 
 # 프로필 수정
